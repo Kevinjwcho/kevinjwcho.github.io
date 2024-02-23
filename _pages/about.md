@@ -2,14 +2,14 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Ph.D. Student, Department of Statistics, University of Pittsburgh.</a>. 
+subtitle: <a href='#'>Ph.D. Student, Department of Statistics, University of Pittsburgh.</a>
 
 profile:
   align: right
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
-  more_info: >
-    <p>University of Pittsburgh, PA</p>
+  # more_info: >
+  #   <p>University of Pittsburgh, PA</p>
 
 news: true # includes a list of news items
 latest_posts: false # includes a list of the newest posts
