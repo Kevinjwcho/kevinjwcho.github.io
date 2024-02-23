@@ -1,6 +1,6 @@
 ---
 layout: about
-title: about
+title: About
 permalink: /
 subtitle: <a href='#'>Ph.D. Student, Department of Statistics, University of Pittsburgh.</a>
 

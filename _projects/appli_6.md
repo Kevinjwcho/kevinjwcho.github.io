@@ -21,7 +21,7 @@ authors:
 ---
 
 ## DNA methylation is associated with prenatal exposure to sulfur dioxide and childhood attnetion-deficit hyperactivity disorder symptoms
-
+### Contributed as the first co-author
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/img6_2.png" title="example image" class="img-fluid rounded z-depth-1" %}
