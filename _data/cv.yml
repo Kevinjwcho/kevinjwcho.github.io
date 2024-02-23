@@ -35,70 +35,95 @@
       year: 2010 - 2016
 
 
-- title: Experience
+- title: Employment
   type: time_table
   contents:
-    - title: Professor of Theoretical Physics
-      institution: Institute for Advanced Study, Princeton University
-      year: 1933 - 1955
+    - title: Research Associate (Full-time)
+      institution: Seoul National University College of Medicine, Seoul, Korea
+      year: 2019 - 2020
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Visiting Professor
-      institution: California Institute of Technology, Pasadena, California, US
-      year: 1933
+        - Managed EDC project and elderly cohort data
+        - Analyzed microbiome, EWAS, GWAS, and time-series data
+        - Forecasted medical workforce demand and supply
+        - Developed healthcare system algorithm
+    - title: Model Developer (Part-time)
+      institution: Begas, Inc., Seoul, Korea
+      year: 2018
       description:
-        - Description 1.
-        - Description 2.
+        - Project from Shinhan Investment Corporation, Seoul, Korea
+        - Stock markets index prediction using functional data analysis and R
 
-    - title: Director
-      institution: Kaiser Wilhelm Institute for Physics, Berlin, Germany.
-      year: 1917-1933
-
-    - title: Professor of Theoretical Physics
-      institution: Karl-Ferdinand University, Prague, Czechoslovakia
-      year: 1911 - 1917
+    - title: Research Assistant (Full-time)
+      institution: Research Institute of Applied Statistics, Sungkyunkwan University, Seoul, Korea
+      year: 2017 - 2018
       description:
+        - Statistical consulting for graduate students
+        - Teaching R and SAS programming
 
-    - title: Associate Professor of Theoretical Physics
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1909 - 1911
-
-- title: Open Source Projects
-  type: time_table
-  contents:
-    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
-      year: 2015-now
-      description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
+# - title: Open Source Projects
+#   type: time_table
+#   contents:
+#     - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
+#       year: 2015-now
+#       description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
 
 - title: Honors and Awards
   type: time_table
   contents:
-    - year: 1921
+    - year: Feb 2024
       items:
-        - Nobel Prize in Physics
-        - Matteucci Medal
-    - year: 2029
+        - Andrew Mellon Predoctoral Fellowships for the 2024-2025 academic year, University of Pittsburgh
+        - Research Proposal; Can We Better Understand Future Health Over Time? A New Model for Dynamic Survival Prediction
+    - year: Aug 2020
       items:
-        - Max Planck Medal
+        - Arts and Sciences Graduate Fellowship, University of Pittsburgh
+    - year: 2018
+      items:
+        - Graduate academic paper presentation award, 2nd place, The Korean Statistical Society
+        - SAS Student Ambassadr, SAS Global Forum 2018
+        - Simsan scholarship for graduate students, Sungkyunkwan University
+    - year: 2017
+      items:
+        - SAS Student Ambassadr, SAS Global Forum 2017
+        - Simsan scholarship for graduate students, Sungkyunkwan University
+    - year: 2016
+      items:
+        - The 14th SAS Analytics Championship, 2nd place, SAS Korea
+        - Academic Excellence Award for undergraduate students, Sungkyunkwan University
+    - year: 2015
+      items:
+        - Academic Excellence Award for undergraduate students, Sungkyunkwan University
 
-- title: Academic Interests
+
+- title: Presentation and Poster
   type: nested_list
   contents:
-    - title: Topic 1.
+    - title: Dynamic prediction for survival outcomes with intensively observed longitudinal predictors
       items:
-        - Description 1.
-        - Description 2.
-    - title: Topic 2.
+        - Keystone State Statistics Symposium, 2023
+        - Poster
+    - title: Penalized Local Linear Quantile Regression for Varying Coefficient Models
       items:
-        - Description 1.
-        - Description 2.
+        - The Korean Statistical Society, 2018
+        - Presentation
+    - title: Analysis of Profitability-Bank Systems in South Korea Using SAS base
+      items:
+        - SAS Global Forum, 2018
+        - Poster
+    - title: Construction of a Disease Network and a Prediction Model for Demential Using Health Insurance Claim Data in Korea
+      items:
+        - SAS Global Forum, 2017
+        - Presentation
 
-- title: Other Interests
-  type: list
-  contents:
-    - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
+
+# - title: Academic Interests
+#   type: nested_list
+#   contents:
+#     - title: Topic 1.
+#       items:
+#         - Description 1.
+#         - Description 2.
+#     - title: Topic 2.
+#       items:
+#         - Description 1.
+#         - Description 2.
