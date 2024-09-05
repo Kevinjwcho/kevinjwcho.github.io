@@ -98,7 +98,7 @@
 - title: Presentation and Poster
   type: nested_list
   contents:
-    - title: Biometric Sesction presentation: Modern Advances in Time-to-event Data Analysis
+    - title: Biometric Sesction presentation, Modern Advances in Time-to-event Data Analysis
       items:
         - JSM 2024, Portland
     - title: Dynamic prediction for survival outcomes with intensively observed longitudinal predictors
