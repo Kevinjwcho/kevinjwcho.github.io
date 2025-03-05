@@ -2,7 +2,7 @@
 layout: about
 title: About
 permalink: /
-subtitle: <a href='#'>Ph.D. Student, Department of Statistics, University of Pittsburgh.</a>
+subtitle: <a href='#'>Ph.D. Candidate, Department of Statistics, University of Pittsburgh.</a>
 
 profile:
   align: right
