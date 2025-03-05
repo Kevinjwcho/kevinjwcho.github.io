@@ -14,7 +14,7 @@
       year: 2020 - 2025
       description:
         - Dynamic Prediction in Survival data; Jointly Landmarking Model(JEL)
-        - Network data analysis in brain fMRI data
+        - Network Assisted LFPCA using brain MEG data
     #     - title: Description 3.
     #       contents:
     #         - Sub-description 1.
