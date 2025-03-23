@@ -16,7 +16,7 @@ latest_posts: false # includes a list of the newest posts
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
-`I am looking for Postdoctroal Position in Statistics or Biostatistics!`
+`I am looking for a Postdoctroal Position in Statistics or Biostatistics!`
 
 I am currently a `Ph.D.` candidate in the Department of Statistics at the [University of Pittsburgh](https://www.stat.pitt.edu), engaged in research under the guidance of Dr. Kehui Chen since 2020. Before commencing my doctoral studies, I served as an `Associate` in research at the [Medical College of Seoul National University](https://medicine.snu.ac.kr/), where I collaborated with Dr. Yun-chul Hong. My research during this period encompassed the analysis of gene expression, methylation patterns, microbiome compositions, and time series  biomarker data.
 
