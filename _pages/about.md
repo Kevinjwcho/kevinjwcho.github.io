@@ -2,7 +2,7 @@
 layout: about
 title: About
 permalink: /
-subtitle: <a href='#'>Ph.D. Candidate, Department of Statistics, University of Pittsburgh.</a>
+subtitle: <a href='#'>Special Faculty (Postdoc), Department of Statistics, Carnegie Mellon University.</a>
 
 profile:
   align: right
@@ -17,7 +17,7 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-I am currently a *Special Faculty* in the Department of Statistics and Data Science and the Institute for Complex Social Dynamics (ICSD) at [Carnegie Mellon University](https://www.cmu.edu/dietrich/statistics-datascience/index.html), where I work with Dr. Nynke Niezink on three-way network data analysis. I earned my Ph.D. in Statistics from the [University of Pittsburgh](https://www.stat.pitt.edu), conducting research under the guidance of Dr. Kehui Chen from 2020 to 2025.
+I am currently a special faculty in the Department of Statistics and Data Science and the Institute for Complex Social Dynamics (ICSD) at [Carnegie Mellon University](https://www.cmu.edu/dietrich/statistics-datascience/index.html), where I work with Dr. Nynke Niezink on three-way network data analysis. I earned my Ph.D. in Statistics from the [University of Pittsburgh](https://www.stat.pitt.edu), conducting research under the guidance of Dr. Kehui Chen from 2020 to 2025.
 
 Before starting my doctoral studies, I was a *Research Associate* at the [Seoul National University College of Medicine](https://medicine.snu.ac.kr/), collaborating with Dr. Yun-chul Hong. My work focused on analyzing gene expression and methylation data, microbiome compositions, and time-series biomarker data.
 
