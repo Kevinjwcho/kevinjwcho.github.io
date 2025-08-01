@@ -38,6 +38,14 @@
 - title: Employment
   type: time_table
   contents:
+    - title: Special Faculty (Postdoc, Full-time)
+      institution: Carnegie Mellon University, Pittsburgh, PA, US
+      year: 2025 - present
+      description:
+        - Deparment of Statistics and Data Science
+        - Joint work with Dr. Nynke Niezink
+        - Institute of Complex Social Dynamics
+        - Three-way network dynamics
     - title: Research Associate (Full-time)
       institution: Seoul National University College of Medicine, Seoul, Korea
       year: 2019 - 2020
@@ -98,6 +106,10 @@
 - title: Presentation and Poster
   type: nested_list
   contents:
+    - title: Dynamic Prediction in Survival Data; Jointly Landmarking Model(JEL)
+      items:
+        - Sungkyunkwan University, Seoul
+        - Seminar, May 2025
     - title: Biometric Sesction presentation, Modern Advances in Time-to-event Data Analysis
       items:
         - JSM 2024, Portland
