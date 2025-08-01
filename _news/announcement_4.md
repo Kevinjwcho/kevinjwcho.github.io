@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-I have started a position as Special Faculty in CMU!
+I have begun a special faculty position at CMU!
