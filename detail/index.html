@@ -17,29 +17,38 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&family=Schibsted+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <style>
   :root{--ink:#1A1C1D;--accent:#0066CC;--line:#E7E8E9;--hair:#F0F1F1;--panel:#F3F4F4;--body:#43464A;--mute:#43464A;--label:#61666A;--faint:#6E7174;--serif:'Schibsted Grotesk','Instrument Sans',system-ui,sans-serif;--sans:'Instrument Sans',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace}
-  .label,.more,.kind,.meta,.back,.sect h2,.tl .y,.news .d{font-family:var(--mono)!important;font-weight:500!important}
-  h1,h2,h3{font-weight:500!important;letter-spacing:-.025em}
+  .label,.more,.kind,.meta,.back,.tl .y,.news .d{font-family:var(--mono)!important;font-weight:500!important}
+  h1,h2,h3{font-family:var(--serif);font-weight:500!important;letter-spacing:-.025em}
+  .row .t,.tl .b .n{font-family:var(--serif);font-weight:500;letter-spacing:-.015em}
   *,*::before,*::after{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{margin:0;background:#fff;color:var(--ink);font-family:var(--serif);-webkit-font-smoothing:antialiased}
+  body{margin:0;background:#fff;color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
   a{color:var(--ink);text-decoration:none}
   a:hover{color:var(--accent)}
   ::selection{background:var(--accent);color:#fff}
   h1,h2,h3{font-weight:400;margin:0;letter-spacing:-0.02em;text-wrap:pretty}
   p{margin:0;text-wrap:pretty}
   ul{list-style:none;padding:0;margin:0}
-  .wrap{display:flex;flex-wrap:wrap;align-items:flex-start;max-width:1280px;margin:0 auto}
-  .side{flex:1 1 260px;min-width:0;position:sticky;top:0;align-self:flex-start;padding:clamp(32px,5vw,64px) clamp(22px,3vw,40px) clamp(32px,4vw,56px);border-right:1px solid var(--line)}
-  .side img{width:100%;max-width:168px;aspect-ratio:1/1;height:auto;border-radius:50%;object-fit:cover;margin-bottom:24px;display:block}
-  .side h1{font-size:clamp(30px,3.4vw,40px);line-height:1.06;margin-bottom:10px}
-  .role{font-family:var(--sans);font-size:13.5px;line-height:1.5;color:#55585f}
-  .nav{display:grid;gap:9px;font-family:var(--sans);font-size:13px;margin:28px 0}
-  .nav a{border-bottom:1px solid var(--line);padding-bottom:8px;transition:color .2s ease,border-color .2s ease}
-  .nav a[data-active="1"]{color:var(--accent);border-color:var(--accent)}
-  .links{display:grid;gap:7px;font-family:var(--sans);font-size:12px}
-  .links a{color:#55585f}
-  .links a.mail{color:var(--accent)}
-  main{flex:3 1 440px;min-width:0;padding:clamp(32px,5vw,64px) clamp(22px,4vw,56px) 0}
+  .shell{padding:0 clamp(20px,5vw,72px)}
+  .topbar{display:flex;align-items:baseline;justify-content:space-between;gap:24px;padding:22px 0 18px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .topbar .name{font-family:var(--serif);font-size:19px;font-weight:500;letter-spacing:-.015em}
+  .topbar nav{display:flex;gap:24px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;flex-wrap:wrap}
+  .topbar nav a{color:var(--label)}
+  .topbar nav a:hover,.topbar nav a[data-active="1"]{color:var(--accent)}
+  .frame{display:grid;grid-template-columns:clamp(0px,calc((100vw - 1040px) * 10),160px) minmax(0,1fr);align-items:start}
+  .rail{position:sticky;top:26px;overflow:hidden}
+  .rail .cap{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--label);margin:44px 20px 0 0;padding-bottom:12px;border-bottom:1px solid var(--line);white-space:nowrap}
+  .rail .items{display:flex;flex-direction:column;gap:2px;margin-right:20px;padding-top:12px}
+  .rail a{display:flex;gap:9px;font-family:var(--mono);font-size:11.5px;color:var(--faint);padding:5px 0;white-space:nowrap}
+  .rail a span:first-child{color:var(--label)}
+  .rail a:hover,.rail a[data-active="1"],.rail a[data-active="1"] span:first-child{color:var(--accent)}
+  main{min-width:0}
+  .hero{margin:14px 0 clamp(30px,4vw,48px);background-color:var(--panel);background-image:radial-gradient(#DBDDDE 1px,transparent 1px);background-size:20px 20px;border-radius:20px;padding:clamp(30px,4.4vw,52px) clamp(26px,4vw,52px);animation:enter .5s cubic-bezier(.2,.7,.2,1) both}
+  .hero .eyebrow{display:flex;gap:6px 18px;flex-wrap:wrap;justify-content:space-between;align-items:baseline;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--label);margin-bottom:clamp(28px,4vw,48px)}
+  .hero .eyebrow a{color:var(--accent)}
+  .hero h1{font-family:var(--serif);font-size:clamp(34px,5vw,64px);line-height:1.03;letter-spacing:-.032em;text-wrap:balance}
+  .hero .plead{margin:20px 0 0;font-size:clamp(16.5px,1.5vw,19px);line-height:1.6;color:var(--body);max-width:60ch}
+  .hero .acts{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
   .lead{font-size:clamp(19px,2vw,25px);line-height:1.44;letter-spacing:-0.01em;max-width:24em}
   .intro{margin-top:20px;font-size:17px;line-height:1.74;color:var(--body);max-width:36em}
   section{padding:clamp(36px,5vw,60px) 0;border-top:1px solid var(--line)}
@@ -63,13 +72,13 @@
   .sw{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:baseline;padding:18px 20px;background:var(--panel);border-left:2px solid var(--accent);margin-bottom:12px}
   .sw .name{font-family:var(--sans);font-size:15px;font-weight:600}
   .sw p{font-family:var(--sans);font-size:13.5px;line-height:1.66;color:var(--mute)}
-  .row{padding:16px 0;border-top:1px solid var(--hair);transition:transform .24s cubic-bezier(.2,.7,.2,1)}
+  .row{padding:20px 0;border-bottom:1px solid var(--line);transition:transform .24s cubic-bezier(.2,.7,.2,1)}
   .row:hover{transform:translateX(5px)}
   .row .t{font-size:clamp(18px,1.9vw,21px);line-height:1.36;margin-bottom:6px}
-  .row .a{font-family:var(--sans);font-size:13px;line-height:1.6;color:var(--mute);margin-bottom:5px}
-  .row .v{font-style:italic;font-size:15.5px;color:var(--mute)}
+  .row .a{font-size:14px;line-height:1.5;color:var(--faint);margin-bottom:6px}
+  .row .v{font-size:14px;font-weight:500;color:var(--body)}
   .row .foot{display:flex;gap:14px;flex-wrap:wrap;align-items:baseline}
-  .tl{display:flex;gap:12px 28px;flex-wrap:wrap;padding:14px 0;border-top:1px solid var(--hair)}
+  .tl{display:flex;gap:12px 28px;flex-wrap:wrap;padding:16px 0;border-bottom:1px solid var(--line)}
   .tl .y{flex:0 0 122px;font-family:var(--sans);font-size:12px;color:var(--faint);padding-top:5px}
   .tl .b{flex:1 1 300px;min-width:0}
   .tl .b .n{font-size:19px;line-height:1.32;margin-bottom:3px}
@@ -82,22 +91,25 @@
   .news .d{flex:0 0 116px;font-family:var(--sans);font-size:12px;color:var(--faint);padding-top:3px}
   .news .x{flex:1 1 300px;min-width:0;font-size:17px;line-height:1.58}
   .back{display:inline-block;font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:clamp(26px,4vw,40px)}
-  .page h1{font-size:clamp(32px,4.6vw,48px);line-height:1.08}
-  .page .plead{margin:18px 0 clamp(30px,4vw,44px);font-size:clamp(19px,2.1vw,23px);line-height:1.56;color:var(--body);max-width:34em}
-  .detailfig{padding:clamp(26px,4vw,44px) clamp(22px,3vw,40px);background:var(--panel);border:1px solid var(--line);margin-bottom:10px}
-  .caption{font-family:var(--sans);font-size:12px;line-height:1.6;color:var(--label);margin-bottom:clamp(32px,4vw,48px)}
-  .sect h2{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--label);margin-bottom:14px;padding-top:18px;border-top:1px solid var(--line)}
-  .sect p{margin-bottom:14px;font-size:17px;line-height:1.74;color:var(--body);max-width:36em}
-  .sect{padding-bottom:clamp(26px,3.5vw,38px)}
+  .detailfig{padding:clamp(26px,4vw,44px) clamp(22px,3vw,40px);background:var(--panel);border-radius:20px;margin-bottom:10px}
+  .caption{font-family:var(--mono);font-size:12px;line-height:1.6;color:var(--label);margin-bottom:clamp(32px,4vw,48px)}
+  .sect h2{font-size:clamp(21px,2.3vw,26px);letter-spacing:-.015em;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid #D9DBDC}
+  .sect p{margin-bottom:14px;font-size:16.5px;line-height:1.7;color:var(--body);max-width:68ch}
+  .sect{padding:0 0 clamp(34px,5vw,56px);border-top:0}
   .bullets{display:grid;gap:10px}
   .bullets li{display:flex;gap:12px;font-family:var(--sans);font-size:13.5px;line-height:1.68;color:var(--mute);max-width:44em}
   .bullets li span:first-child{flex:0 0 auto;color:var(--accent)}
-  .listrow{display:flex;gap:clamp(16px,3vw,28px);flex-wrap:wrap;align-items:flex-start;padding:22px 0;border-top:1px solid var(--line);cursor:pointer}
-  .listrow .thumb{flex:0 0 120px;padding:12px 10px;background:var(--panel);border:1px solid var(--line)}
+  .listrow{display:flex;gap:clamp(18px,3vw,36px);flex-wrap:wrap;align-items:center;padding:clamp(22px,2.8vw,32px) 0;border-bottom:1px solid var(--line);cursor:pointer}
+  .listrow:first-of-type{border-top:1px solid #D9DBDC}
+  .listrow h2{font-size:clamp(22px,2.5vw,30px);line-height:1.14}
+  .listrow:hover h2{color:var(--accent)}
+  .listrow .thumb{flex:0 0 150px;padding:16px 14px;background:var(--panel);border-radius:14px}
   .listrow .b{flex:1 1 320px;min-width:0}
-  .listrow p{margin-top:6px;font-family:var(--sans);font-size:13.5px;line-height:1.64;color:var(--mute);max-width:44em}
-  .btn{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);padding:9px 14px}
-  footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px;padding:20px 0 40px;border-top:1px solid var(--line);font-family:var(--sans);font-size:11px;letter-spacing:.04em;color:var(--faint)}
+  .listrow p{margin-top:8px;font-size:15px;line-height:1.6;color:var(--mute);max-width:64ch}
+  .btn{font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--body);background:#fff;border:1px solid #D9DBDC;border-radius:6px;padding:8px 12px}
+  .btn:hover{border-color:var(--accent);color:var(--accent)}
+  footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px;padding:26px 0 40px;margin-top:clamp(20px,3vw,40px);border-top:1px solid var(--line);font-family:var(--mono);font-size:11px;color:var(--label)}
+  footer a{color:var(--label);border-bottom:1px solid #D9DBDC}
   @keyframes enter{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
   @keyframes draw{to{stroke-dashoffset:0}}
   @keyframes pulse{0%,100%{opacity:.2}50%{opacity:.85}}
@@ -118,28 +130,28 @@
 </style>
 </head>
 <body>
-<div class="wrap">
-  <aside class="side">
-    <a href="../index.html" id="home"><img src="../assets/img/prof_pic.jpg" alt="Jinwoo Cho" /><h1>Jinwoo Cho</h1></a>
-    <p class="role">Special Faculty (Post-Doctoral Fellow)</p>
-    <p class="role">Department of Statistics<br />Carnegie Mellon University</p>
-    <nav class="nav">
-      <a href="#/#projects" data-nav="projects">Projects</a>
-      <a href="#/#software" data-nav="software">Software</a>
-      <a href="#/#publications" data-nav="publications">Publications</a>
-      <a href="#/#cv" data-nav="cv">CV</a>
-      <a href="#/#news" data-nav="news">News</a>
+<div class="shell">
+  <header class="topbar">
+    <a class="name" href="../index.html">Jinwoo (Kevin) Cho</a>
+    <nav>
+      <a href="#/projects" data-nav="projects">projects</a>
+      <a href="#/publications" data-nav="publications">publications</a>
+      <a href="#/cv" data-nav="cv">cv</a>
+      <a href="../index.html#contact">contact</a>
     </nav>
-    <div class="links">
-      <a class="mail" href="mailto:jinoojwcho@cmu.edu">jinoojwcho@cmu.edu</a>
-      <a href="https://scholar.google.com/citations?user=Ls13qzcAAAAJ">Google Scholar &middot; cited by 257</a>
-      <a href="https://orcid.org/0000-0002-5848-1770">ORCID 0000-0002-5848-1770</a>
-      <a href="https://github.com/kevinjwcho">GitHub</a>
-      <a href="https://www.linkedin.com/in/kevinjwcho">LinkedIn</a>
-      <a href="../assets/pdf/Jinwoo_Cho_CV.pdf">CV (PDF)</a>
-    </div>
-  </aside>
-  <main id="main"></main>
+  </header>
+  <div class="frame">
+    <aside class="rail">
+      <div class="cap">index</div>
+      <div class="items">
+        <a href="../index.html"><span>00</span><span>home</span></a>
+        <a href="#/projects" data-nav="projects"><span>01</span><span>projects</span></a>
+        <a href="#/publications" data-nav="publications"><span>02</span><span>publications</span></a>
+        <a href="#/cv" data-nav="cv"><span>03</span><span>cv</span></a>
+      </div>
+    </aside>
+    <main id="main"></main>
+  </div>
 </div>
 <script src="data.js"></script>
 <script>
@@ -174,68 +186,48 @@ const notes = (ns) => !ns || !ns.length ? '' : '<ul class="notes">' + ns.map((n)
 const pubRow = (p) => '<div class="row"><div class="t">' + esc(p.title) + '</div><div class="a">' + esc(p.authors) + '</div><div class="foot"><span class="v">' + esc(p.venue || p.group) + '</span>' + (p.link ? '<a class="more" href="' + esc(p.url) + '">' + esc(p.link) + '</a>' : '') + '</div></div>';
 const tlRow = (it) => '<div class="tl"><div class="y">' + esc(it.year) + '</div><div class="b"><div class="n">' + esc(it.title) + '</div>' + (it.org ? '<div class="o">' + esc(it.org) + '</div>' : '') + notes(it.notes) + '</div></div>';
 
-function landing() {
-  const featured = DATA.projects.slice(0, 4);
-  return '<section data-enter>' +
-    '<p class="lead">Predicting risk from data that arrive over time, on networks, and in high dimensions.</p>' +
-    '<p class="intro">I build statistical methods for data that arrive with structure attached. Three threads run through the work: network data analysis, dynamic prediction in survival analysis, and high-dimensional estimation that uses a known network as prior information. At CMU I work with Dr. Nynke Niezink on longitudinal three-way network analysis at the Institute of Complex Social Dynamics. I earned my Ph.D. in Statistics from the University of Pittsburgh under Dr. Kehui Chen, working on dynamic prediction for survival outcomes and network-assisted functional data analysis. Before that I was a Research Associate at the Seoul National University College of Medicine, analyzing gene expression and methylation data, microbiome compositions, and time-series biomarkers.</p>' +
-  '</section>' +
-  '<section id="projects" data-sr><div class="head"><h2 class="label">Selected Projects</h2><a class="more" href="#/projects">All ' + DATA.projects.length + ' projects &rarr;</a></div><div class="grid">' +
-    featured.map((p) => '<a class="card" href="#/p/' + p.slug + '"><div class="rule"></div><div class="top"><span class="kind">' + esc(p.kind) + '</span><span class="meta">' + esc(p.meta) + '</span></div><h3>' + esc(p.title) + '</h3><div class="reveal"><div class="fig">' + glyph(p.glyph) + '</div><p>' + esc(p.body) + '</p></div></a>').join('') +
-  '</div></section>' +
-  '<section id="software" data-sr><h2 class="label" style="margin-bottom:18px">Software</h2>' +
-    DATA.software.map((s) => '<div class="sw"><div style="flex:1 1 300px;min-width:0"><div style="display:flex;gap:10px;align-items:baseline;margin-bottom:5px"><span class="name">' + esc(s.name) + '</span><span class="kind">' + esc(s.status) + '</span></div><p>' + esc(s.body) + '</p></div><a class="more" href="' + esc(s.url) + '">' + esc(s.link) + '</a></div>').join('') +
-  '</section>' +
-  '<section id="publications" data-sr><div class="head"><h2 class="label">Selected Publications</h2><a class="more" href="#/publications">All ' + DATA.publications.length + ' publications &rarr;</a></div>' +
-    DATA.publications.filter((p) => p.selected).map(pubRow).join('') +
-  '</section>' +
-  '<section id="cv" data-sr><div class="head"><h2 class="label">Appointments &amp; Education</h2><a class="more" href="#/cv">Full CV &rarr;</a></div>' +
-    DATA.cvSummary.map((c) => '<div class="tl"><div class="y">' + esc(c.year) + '</div><div class="b"><div class="n">' + esc(c.title) + '</div><div class="o">' + esc(c.org) + '</div></div></div>').join('') +
-  '</section>' +
-  '<section id="news" data-sr><h2 class="label" style="margin-bottom:18px">News</h2>' +
-    DATA.news.map((n) => '<div class="news"><div class="d">' + esc(n.date) + '</div><div class="x">' + esc(n.text) + '</div></div>').join('') +
-  '</section>';
-}
+const hero = (eyebrow, title, lead, acts) => '<div class="hero"><div class="eyebrow">' + eyebrow + '</div><h1>' + title + '</h1>' + (lead ? '<p class="plead">' + lead + '</p>' : '') + (acts ? '<div class="acts">' + acts + '</div>' : '') + '</div>';
+const HOME = '<a href="../index.html">&larr; home</a>';
 
 function projectPage(slug) {
   const p = DATA.projects.find((x) => x.slug === slug);
-  if (!p) return landing();
-  return '<article class="page" data-enter><a class="back" href="#/">&larr; All projects</a>' +
-    '<div class="top" style="display:flex;gap:10px;align-items:baseline;margin-bottom:10px"><span class="kind">' + esc(p.kind) + '</span><span class="meta">' + esc(p.meta) + '</span></div>' +
-    '<h1>' + esc(p.title) + '</h1><p class="plead">' + esc(p.body) + '</p>' +
-    '<div class="detailfig">' + glyph(p.glyph) + '</div>' +
+  if (!p) return projectsPage();
+  return '<article class="page" data-enter>' +
+    hero('<span>' + esc(p.kind) + ' &middot; ' + esc(p.meta) + '</span><a href="#/projects">&larr; all projects</a>', esc(p.title), esc(p.body)) +
+    '<div class="detailfig">' + glyph(p.glyph) + '</div><div style="height:clamp(30px,4vw,48px)"></div>' +
     p.sections.map((s) => '<section class="sect"><h2>' + esc(s.heading) + '</h2>' + (s.body ? '<p>' + esc(s.body) + '</p>' : '') + (s.bullets && s.bullets.length ? '<ul class="bullets">' + s.bullets.map((b) => '<li><span>&mdash;</span><span>' + esc(b) + '</span></li>').join('') + '</ul>' : '') + '</section>').join('') +
-    '<div style="padding-top:20px;border-top:1px solid var(--line);display:flex;gap:14px 28px;flex-wrap:wrap"><a class="back" style="margin:0" href="#/">&larr; All projects</a><a class="more" style="color:var(--label)" href="mailto:jinoojwcho@cmu.edu">Ask about this work</a></div>' +
+    '<div style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn" href="#/projects">&larr; All projects</a><a class="btn" href="mailto:jinoojwcho@cmu.edu">Ask about this work</a></div>' +
   '</article>';
 }
 
 function projectsPage() {
-  return '<article class="page" data-enter><a class="back" href="#/">&larr; Back</a><h1>Projects</h1>' +
-    '<p class="meta" style="margin:12px 0 clamp(28px,4vw,42px)">' + DATA.projects.length + ' projects, from the current manuscript back to earlier applied work.</p>' +
-    DATA.projects.map((p) => '<a class="listrow" href="#/p/' + p.slug + '"><div class="thumb">' + glyph(p.glyph) + '</div><div class="b"><div class="top" style="display:flex;gap:10px;align-items:baseline;margin-bottom:4px"><span class="kind">' + esc(p.kind) + '</span><span class="meta">' + esc(p.meta) + '</span></div><h2 style="font-weight:500;font-size:clamp(20px,2.1vw,24px);line-height:1.2">' + esc(p.title) + '</h2><p>' + esc(p.body) + '</p></div></a>').join('') +
-    '<div style="padding-top:20px;border-top:1px solid var(--line)"><a class="back" style="margin:0" href="#/">&larr; Back</a></div></article>';
+  return '<article class="page" data-enter>' +
+    hero('<span>projects &middot; ' + DATA.projects.length + ' entries</span>' + HOME, 'Projects', 'From the current manuscripts back to earlier applied work.') +
+    DATA.projects.map((p) => '<a class="listrow" href="#/p/' + p.slug + '"><div class="b"><div class="top" style="display:flex;gap:10px;align-items:baseline;margin-bottom:8px"><span class="kind">' + esc(p.kind) + '</span><span class="meta">' + esc(p.meta) + '</span></div><h2>' + esc(p.title) + '</h2><p>' + esc(p.body) + '</p></div><div class="thumb">' + glyph(p.glyph) + '</div></a>').join('') +
+    '</article>';
 }
 
 function pubsPage() {
   const groups = ['In preparation', 'Submitted', 'Published'];
-  return '<article class="page" data-enter><a class="back" href="#/">&larr; Back</a><h1 style="margin-bottom:clamp(28px,4vw,42px)">Publications</h1>' +
+  return '<article class="page" data-enter>' +
+    hero('<span>publications &middot; ' + DATA.publications.length + ' entries &middot; ' + CITATIONS + ' citations</span>' + HOME, 'Publications', '', '<a class="btn" href="https://scholar.google.com/citations?user=Ls13qzcAAAAJ">Google Scholar</a>') +
     groups.map((g) => {
       const items = DATA.publications.filter((p) => p.group === g);
       if (!items.length) return '';
-      return '<section class="sect" style="padding-top:0"><h2>' + esc(g) + '</h2>' + items.map(pubRow).join('') + '</section>';
+      return '<section class="sect"><h2>' + esc(g) + '</h2>' + items.map(pubRow).join('') + '</section>';
     }).join('') +
-    '<div style="padding-top:20px;border-top:1px solid var(--line)"><a class="back" style="margin:0" href="#/">&larr; Back</a></div></article>';
+    '</article>';
 }
 
 function cvPage() {
-  return '<article class="page" data-enter><a class="back" href="#/">&larr; Back</a>' +
-    '<div style="display:flex;flex-wrap:wrap;gap:14px 24px;align-items:baseline;justify-content:space-between;margin-bottom:clamp(30px,4vw,44px)"><h1>Curriculum Vitae</h1><a class="btn" href="../assets/pdf/Jinwoo_Cho_CV.pdf">Download PDF</a></div>' +
-    DATA.cv.map((b) => '<section class="sect" style="padding-top:0"><h2>' + esc(b.heading) + '</h2>' + b.items.map(tlRow).join('') + '</section>').join('') +
-    '<div style="padding-top:20px;border-top:1px solid var(--line)"><a class="back" style="margin:0" href="#/">&larr; Back</a></div></article>';
+  return '<article class="page" data-enter>' +
+    hero('<span>curriculum vitae</span>' + HOME, 'Curriculum Vitae', '', '<a class="btn" href="../assets/pdf/Jinwoo_Cho_CV.pdf">Download PDF</a>') +
+    DATA.cv.map((b) => '<section class="sect"><h2>' + esc(b.heading) + '</h2>' + b.items.map(tlRow).join('') + '</section>').join('') +
+    '</article>';
 }
 
 const main = document.getElementById('main');
-const FOOT = '<footer><span>&copy; 2026 Jinwoo Cho</span><span>Pittsburgh, PA</span></footer>';
+const FOOT = '<footer><span>Department of Statistics &amp; Data Science, Carnegie Mellon University</span><span><a href="../index.html">&larr; home</a></span></footer>';
 let io;
 
 function reveal() {
@@ -247,45 +239,26 @@ function reveal() {
   document.querySelectorAll('[data-sr]:not(.in)').forEach((el) => io.observe(el));
 }
 
-function spy() {
-  const links = Array.from(document.querySelectorAll('[data-nav]'));
-  let cur = null;
-  links.forEach((a) => {
-    const s = document.getElementById(a.getAttribute('data-nav'));
-    if (s && s.getBoundingClientRect().top <= 140) cur = a;
-  });
-  links.forEach((a) => a.setAttribute('data-active', a === cur ? '1' : '0'));
+function spy(path) {
+  const cur = path.indexOf('p/') === 0 ? 'projects' : path;
+  document.querySelectorAll('[data-nav]').forEach((a) => a.setAttribute('data-active', a.getAttribute('data-nav') === cur ? '1' : '0'));
 }
 
 function route() {
-  const h = location.hash.replace(/^#\/?/, '');
-  const anchor = h.indexOf('#') >= 0 ? h.slice(h.indexOf('#') + 1) : '';
-  const path = (anchor ? h.slice(0, h.indexOf('#')) : h).replace(/\/$/, '');
+  const path = location.hash.replace(/^#\/?/, '').split('#')[0].replace(/\/$/, '');
   let view;
   if (path.indexOf('p/') === 0) view = projectPage(path.slice(2));
   else if (path === 'projects') view = projectsPage();
   else if (path === 'publications') view = pubsPage();
   else if (path === 'cv') view = cvPage();
-  else view = landing();
+  else { location.replace('../index.html'); return; }
   main.innerHTML = view + FOOT;
   reveal();
-  if (anchor) {
-    const el = document.getElementById(anchor);
-    if (el) window.scrollTo(0, el.getBoundingClientRect().top + window.pageYOffset - 24);
-  } else {
-    window.scrollTo(0, 0);
-  }
-  spy();
-  requestAnimationFrame(spy);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(spy);
+  window.scrollTo(0, 0);
+  spy(path);
 }
 
-window.addEventListener('load', spy);
 window.addEventListener('hashchange', route);
-window.addEventListener('scroll', () => {
-  if (window.__raf) return;
-  window.__raf = requestAnimationFrame(() => { window.__raf = null; spy(); });
-}, { passive: true });
 route();
 </script>
 </body>
