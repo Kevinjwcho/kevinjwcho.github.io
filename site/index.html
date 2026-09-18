@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Jinwoo Cho</title>
+<meta name="author" content="Jinwoo Cho" />
+<meta name="description" content="Jinwoo Cho — Special Faculty (Post-Doctoral Fellow), Department of Statistics, Carnegie Mellon University. Network data analysis, dynamic prediction in survival analysis, high-dimensional data with network structure." />
+<link rel="canonical" href="https://kevinjwcho.github.io/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Jinwoo Cho" />
+<meta property="og:description" content="Predicting risk from data that arrive over time, on networks, and in high dimensions." />
+<meta property="og:url" content="https://kevinjwcho.github.io/" />
+<meta property="og:image" content="https://kevinjwcho.github.io/assets/img/prof_pic.jpg" />
+<meta name="twitter:card" content="summary" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{--ink:#101216;--accent:#1B4DFF;--line:#e8e8ea;--hair:#f0f1f3;--panel:#f6f7f9;--body:#3c4047;--mute:#4a4e56;--label:#5f646c;--faint:#6e737b;--serif:Newsreader,Georgia,serif;--sans:Archivo,system-ui,sans-serif}
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:#fff;color:var(--ink);font-family:var(--serif);-webkit-font-smoothing:antialiased}
+  a{color:var(--ink);text-decoration:none}
+  a:hover{color:var(--accent)}
+  ::selection{background:var(--accent);color:#fff}
+  h1,h2,h3{font-weight:400;margin:0;letter-spacing:-0.02em;text-wrap:pretty}
+  p{margin:0;text-wrap:pretty}
+  ul{list-style:none;padding:0;margin:0}
+  .wrap{display:flex;flex-wrap:wrap;align-items:flex-start;max-width:1280px;margin:0 auto}
+  .side{flex:1 1 260px;min-width:0;position:sticky;top:0;align-self:flex-start;padding:clamp(32px,5vw,64px) clamp(22px,3vw,40px) clamp(32px,4vw,56px);border-right:1px solid var(--line)}
+  .side img{width:100%;max-width:168px;aspect-ratio:1/1;height:auto;border-radius:50%;object-fit:cover;margin-bottom:24px;display:block}
+  .side h1{font-size:clamp(30px,3.4vw,40px);line-height:1.06;margin-bottom:10px}
+  .role{font-family:var(--sans);font-size:13.5px;line-height:1.5;color:#55585f}
+  .nav{display:grid;gap:9px;font-family:var(--sans);font-size:13px;margin:28px 0}
+  .nav a{border-bottom:1px solid var(--line);padding-bottom:8px;transition:color .2s ease,border-color .2s ease}
+  .nav a[data-active="1"]{color:var(--accent);border-color:var(--accent)}
+  .links{display:grid;gap:7px;font-family:var(--sans);font-size:12px}
+  .links a{color:#55585f}
+  .links a.mail{color:var(--accent)}
+  main{flex:3 1 440px;min-width:0;padding:clamp(32px,5vw,64px) clamp(22px,4vw,56px) 0}
+  .lead{font-size:clamp(19px,2vw,25px);line-height:1.44;letter-spacing:-0.01em;max-width:24em}
+  .intro{margin-top:20px;font-size:17px;line-height:1.74;color:var(--body);max-width:36em}
+  section{padding:clamp(36px,5vw,60px) 0;border-top:1px solid var(--line)}
+  section:first-child{border-top:0;padding-top:0}
+  .label{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--label);margin:0}
+  .head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:clamp(20px,3vw,30px)}
+  .more{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+  .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(22px,2.6vw,34px);align-items:start}
+  @media(max-width:560px){.grid{grid-template-columns:1fr}}
+  .card{display:grid;gap:0;align-content:start;cursor:pointer}
+  .card .rule{height:2px;background:var(--line);margin-bottom:14px;transition:background .2s ease}
+  .card:hover .rule{background:var(--accent)}
+  .kind{font-family:var(--sans);font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+  .meta{font-family:var(--sans);font-size:11px;color:var(--faint)}
+  .card .top{display:flex;gap:10px;align-items:baseline;margin-bottom:5px}
+  .card h3{font-weight:500;font-size:clamp(20px,2.1vw,24px);line-height:1.2;letter-spacing:-0.012em}
+  .card .reveal{max-height:0;opacity:0;overflow:hidden;transition:max-height .4s cubic-bezier(.2,.7,.2,1),opacity .28s ease}
+  .card:hover .reveal,.card:focus-visible .reveal{max-height:360px;opacity:1}
+  .card .fig{margin-top:14px;padding:16px 14px;background:var(--panel);border:1px solid var(--line)}
+  .card .reveal p{margin-top:12px;font-family:var(--sans);font-size:13.5px;line-height:1.66;color:var(--mute);display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+  .sw{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:baseline;padding:18px 20px;background:var(--panel);border-left:2px solid var(--accent);margin-bottom:12px}
+  .sw .name{font-family:var(--sans);font-size:15px;font-weight:600}
+  .sw p{font-family:var(--sans);font-size:13.5px;line-height:1.66;color:var(--mute)}
+  .row{padding:16px 0;border-top:1px solid var(--hair);transition:transform .24s cubic-bezier(.2,.7,.2,1)}
+  .row:hover{transform:translateX(5px)}
+  .row .t{font-size:clamp(18px,1.9vw,21px);line-height:1.36;margin-bottom:6px}
+  .row .a{font-family:var(--sans);font-size:13px;line-height:1.6;color:var(--mute);margin-bottom:5px}
+  .row .v{font-style:italic;font-size:15.5px;color:var(--mute)}
+  .row .foot{display:flex;gap:14px;flex-wrap:wrap;align-items:baseline}
+  .tl{display:flex;gap:12px 28px;flex-wrap:wrap;padding:14px 0;border-top:1px solid var(--hair)}
+  .tl .y{flex:0 0 122px;font-family:var(--sans);font-size:12px;color:var(--faint);padding-top:5px}
+  .tl .b{flex:1 1 300px;min-width:0}
+  .tl .b .n{font-size:19px;line-height:1.32;margin-bottom:3px}
+  .tl .b .o{font-family:var(--sans);font-size:13px;line-height:1.55;color:var(--mute)}
+  .notes{display:grid;gap:7px;margin-top:9px}
+  .notes li{display:flex;gap:11px;font-family:var(--sans);font-size:13px;line-height:1.62;color:#55585f;max-width:44em}
+  .notes li span:first-child{flex:0 0 auto;color:#c3c7cd}
+  .news{display:flex;gap:12px 28px;flex-wrap:wrap;padding:13px 0;border-top:1px solid var(--hair);transition:transform .24s cubic-bezier(.2,.7,.2,1)}
+  .news:hover{transform:translateX(5px)}
+  .news .d{flex:0 0 116px;font-family:var(--sans);font-size:12px;color:var(--faint);padding-top:3px}
+  .news .x{flex:1 1 300px;min-width:0;font-size:17px;line-height:1.58}
+  .back{display:inline-block;font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:clamp(26px,4vw,40px)}
+  .page h1{font-size:clamp(32px,4.6vw,48px);line-height:1.08}
+  .page .plead{margin:18px 0 clamp(30px,4vw,44px);font-size:clamp(19px,2.1vw,23px);line-height:1.56;color:var(--body);max-width:34em}
+  .detailfig{padding:clamp(26px,4vw,44px) clamp(22px,3vw,40px);background:var(--panel);border:1px solid var(--line);margin-bottom:10px}
+  .caption{font-family:var(--sans);font-size:12px;line-height:1.6;color:var(--label);margin-bottom:clamp(32px,4vw,48px)}
+  .sect h2{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--label);margin-bottom:14px;padding-top:18px;border-top:1px solid var(--line)}
+  .sect p{margin-bottom:14px;font-size:17px;line-height:1.74;color:var(--body);max-width:36em}
+  .sect{padding-bottom:clamp(26px,3.5vw,38px)}
+  .bullets{display:grid;gap:10px}
+  .bullets li{display:flex;gap:12px;font-family:var(--sans);font-size:13.5px;line-height:1.68;color:var(--mute);max-width:44em}
+  .bullets li span:first-child{flex:0 0 auto;color:var(--accent)}
+  .listrow{display:flex;gap:clamp(16px,3vw,28px);flex-wrap:wrap;align-items:flex-start;padding:22px 0;border-top:1px solid var(--line);cursor:pointer}
+  .listrow .thumb{flex:0 0 120px;padding:12px 10px;background:var(--panel);border:1px solid var(--line)}
+  .listrow .b{flex:1 1 320px;min-width:0}
+  .listrow p{margin-top:6px;font-family:var(--sans);font-size:13.5px;line-height:1.64;color:var(--mute);max-width:44em}
+  .btn{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);padding:9px 14px}
+  footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px;padding:20px 0 40px;border-top:1px solid var(--line);font-family:var(--sans);font-size:11px;letter-spacing:.04em;color:var(--faint)}
+  @keyframes enter{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  @keyframes pulse{0%,100%{opacity:.2}50%{opacity:.85}}
+  [data-enter]{animation:enter .42s cubic-bezier(.2,.7,.2,1) both}
+  [data-sr]{opacity:0;transform:translateY(12px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1)}
+  [data-sr].in{opacity:1;transform:none}
+  .gl path,.gl line,.gl polyline{stroke-dasharray:460;stroke-dashoffset:460}
+  .gl circle,.gl rect{opacity:.18}
+  .card:hover .gl path,.card:hover .gl line,.listrow .gl path,.listrow .gl line,.detailfig .gl path,.detailfig .gl line{animation:draw 1.5s cubic-bezier(.3,.7,.2,1) forwards}
+  .card:hover .gl circle,.listrow .gl circle,.detailfig .gl circle{animation:pulse 2.6s ease-in-out infinite}
+  .card:hover .gl rect,.listrow .gl rect,.detailfig .gl rect{opacity:.5}
+  @media(prefers-reduced-motion:reduce){
+    [data-sr]{opacity:1;transform:none;transition:none}
+    [data-enter]{animation:none}
+    .gl path,.gl line,.gl polyline{stroke-dashoffset:0;animation:none!important}
+    .row:hover,.news:hover{transform:none}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <aside class="side">
+    <a href="#/" id="home"><img src="assets/img/prof_pic.jpg" alt="Jinwoo Cho" /><h1>Jinwoo Cho</h1></a>
+    <p class="role">Special Faculty (Post-Doctoral Fellow)</p>
+    <p class="role">Department of Statistics<br />Carnegie Mellon University</p>
+    <nav class="nav">
+      <a href="#/#projects" data-nav="projects">Projects</a>
+      <a href="#/#software" data-nav="software">Software</a>
+      <a href="#/#publications" data-nav="publications">Publications</a>
+      <a href="#/#cv" data-nav="cv">CV</a>
+      <a href="#/#news" data-nav="news">News</a>
+    </nav>
+    <div class="links">
+      <a class="mail" href="mailto:jinoojwcho@cmu.edu">jinoojwcho@cmu.edu</a>
+      <a href="https://scholar.google.com/citations?user=Ls13qzcAAAAJ">Google Scholar &middot; cited by 257</a>
+      <a href="https://orcid.org/0000-0002-5848-1770">ORCID 0000-0002-5848-1770</a>
+      <a href="https://github.com/kevinjwcho">GitHub</a>
+      <a href="https://www.linkedin.com/in/kevinjwcho">LinkedIn</a>
+      <a href="assets/pdf/Jinwoo_Cho_CV.pdf">CV (PDF)</a>
+    </div>
+  </aside>
+  <main id="main"></main>
+</div>
+<script src="data.js"></script>
+<script>
+const DATA = window.DATA || {
+ "projects": [
+  {
+   "slug": "ljm",
+   "title": "Local Joint Model (LJM)",
+   "kind": "Manuscript",
+   "meta": "In preparation",
+   "glyph": "trajectory",
+   "body": "Dynamic prediction of survival outcomes from multiple longitudinal biomarkers. At a landmark time the biomarkers follow a local linear mixed-effects model whose subject-specific coefficients are the current value and the instantaneous rate of change; the survival model conditions on these latent quantities through a transformation function G, with Cox proportional hazards and proportional odds as special cases. Estimated with PAQ-EM, a projected adaptive-quadrature EM algorithm, and released as an R package.",
+   "sections": [
+    {
+     "heading": "The problem",
+     "body": "In dynamic prediction the goal is the conditional survival risk of an individual who remains event-free at a landmark time s. Two families of methods dominate, and each gives something up.",
+     "bullets": [
+      "Landmarking feeds recent biomarker values and a crude estimate of their change directly into the survival model; with noisy longitudinal observations this performs poorly.",
+      "Two-stage landmarking first models the trajectories, then feeds the estimates forward — strong only when the longitudinal model is well specified, and carrying first-stage uncertainty into second-stage inference is case-specific and computationally intensive.",
+      "Joint models share random effects across both processes, but predictions degrade under misspecification, and because they model longitudinal and survival processes at concurrent times it is hard to isolate the effect of the current value versus the current slope."
+     ]
+    },
+    {
+     "heading": "The model",
+     "body": "At landmark time s, the longitudinal biomarkers are modeled by a local linear mixed-effects specification whose subject-specific coefficients are exactly the true current value and the instantaneous rate of change of each biomarker. The survival model conditions directly on these latent quantities and is kept flexible through a transformation function G, with the Cox proportional hazards model and the proportional odds model as special cases.",
+     "bullets": [
+      "No global specification of the biomarker trajectories is required — local linearity holds near s under weak smoothness assumptions.",
+      "The effects of current value and current slope on conditional risk are parameterized directly.",
+      "Longitudinal and survival components are estimated jointly by maximizing a kernel-weighted local joint likelihood, which stabilizes estimation under noisy observations."
+     ]
+    },
+    {
+     "heading": "Estimation",
+     "body": "With K biomarkers the local model carries 2K random effects, so a direct E-step is a 2K-dimensional integral. PAQ-EM, a projected adaptive-quadrature EM algorithm, uses the fact that the survival likelihood depends on the random effects only through one linear combination, and replaces the multivariate integral with a one-dimensional adaptive quadrature along that direction.",
+     "bullets": [
+      "Computation stays practical as the number of biomarkers grows.",
+      "Association parameters can be constant or time-varying through B-splines, with confidence bands.",
+      "Implemented in R with Rcpp; the package is on GitHub."
+     ]
+    },
+    {
+     "heading": "Application",
+     "body": "Simulation studies cover irregular visit designs and strongly nonlinear trajectories across measurement-error variances, and compare against landmarking, two-stage landmarking and standard joint models by time-dependent AUC and prediction error. The method is applied to the PBC data, recovering individual conditional-risk curves at landmark s = 5 for three biomarkers.",
+     "bullets": []
+    },
+    {
+     "heading": "Status",
+     "body": "With Dr. Kehui Chen, University of Pittsburgh. The single-biomarker version, Jointly Estimated Landmarking (JEL), is under review; the multivariate LJM manuscript is in preparation. Presented at JSM 2024 (Biometrics Section, Modern Advances in Time-to-event Data Analysis) and the Keystone State Statistics Symposium.",
+     "bullets": []
+    }
+   ]
+  },
+  {
+   "slug": "three-way",
+   "title": "Three-Way Network Dynamics",
+   "kind": "Manuscript",
+   "meta": "In preparation",
+   "glyph": "network",
+   "body": "A stochastic actor-oriented model (SAOM) for longitudinal cognitive social structure data: the tie from sender j to receiver k as perceived by actor i, observed over time. Perceptions and self-reported ties evolve together by micro-steps, implemented as an extension of the RSiena package. With Dr. Nynke Niezink.",
+   "sections": [
+    {
+     "heading": "Setting",
+     "body": "Network dynamic models treat a tie as indexed by a sender and a receiver. Cognitive social structure data add a third mode, the perceiver: every actor reports the whole network as they see it. Three-way representations with perceiver, sender and receiver roles are well established, but their longitudinal analysis was previously not possible, even though theories such as balance theory concern both network perceptions and network change.",
+     "bullets": []
+    },
+    {
+     "heading": "The model",
+     "body": "Each perceiver's slice and the self-reported network change by micro-steps in continuous time. Rate parameters are slice-specific, while evaluation parameters can be shared across perceivers or left perceiver-specific. Effects are organized by which network a micro-step changes and which network it reads.",
+     "bullets": [
+      "Within-network effects, such as density and reciprocity inside a slice.",
+      "Self-reports that reference the perceptions of peers.",
+      "Perceptions that reference self-reports: agreement with a self-reported tie, reciprocity to a self-tie.",
+      "Array-wide effects that have no single-slice form."
+     ]
+    },
+    {
+     "heading": "Estimation and fit",
+     "body": "Parameters are estimated by the method of moments, with cross-lagged statistics for the effects that link perceptions and self-reports. The Monte Carlo goodness-of-fit test of RSiena is extended with statistics defined across perceived slices, such as the spread of slice densities and the agreement between perceivers. In simulations at values estimated from data, perception-side parameters are recovered without bias and with nominal coverage from a single period, while the self-reported side requires several periods.",
+     "bullets": []
+    },
+    {
+     "heading": "Application",
+     "body": "Longitudinal friendship perception data collected among 20 students in a six-week summer course.",
+     "bullets": []
+    },
+    {
+     "heading": "Status",
+     "body": "Manuscript in preparation with Dr. Nynke Niezink at the Institute of Complex Social Dynamics and the Department of Statistics & Data Science, Carnegie Mellon University. The implementation lives in a fork of RSiena on GitHub. Presented at INSNA Sunbelt 2026 and JSM 2026.",
+     "bullets": []
+    }
+   ]
+  },
+  {
+   "slug": "nalfpca",
+   "title": "Network-Assisted Localized FPCA",
+   "kind": "Manuscript",
+   "meta": "In preparation",
+   "glyph": "netcurve",
+   "body": "Localized functional principal component analysis for brain imaging data. A Fantope-based sparse estimator is combined with a graph smoothness penalty built from a functional connectivity network, so that eigenfunctions are localized and smooth along network edges rather than along anatomical distance.",
+   "sections": [
+    {
+     "heading": "Idea",
+     "body": "FPCA summarizes the dominant patterns of brain activity measured over many regions of interest. The eigenfunctions are hard to interpret unless they are both localized and smooth, but smoothness defined by anatomical proximity is inappropriate for brain data, where functionally coupled regions can be physically distant. Here smoothness is defined on a functional connectivity network instead.",
+     "bullets": []
+    },
+    {
+     "heading": "Method",
+     "body": "Builds on the localized FPCA of Chen and Lei (2015), solved by ADMM over the Fantope.",
+     "bullets": [
+      "A quadratic graph Laplacian penalty encourages eigenfunctions that vary smoothly along network edges; an ℓ1 penalty keeps them localized.",
+      "The smoothing parameter is chosen by a cross-validation criterion that involves all reported components, since components can tolerate very different amounts of smoothing on a graph.",
+      "The localization parameter is chosen by a fraction-of-variance rule that stays stable when the number of regions exceeds the sample size."
+     ]
+    },
+    {
+     "heading": "Evidence",
+     "body": "Simulations on stochastic block models and on real functional connectivity graphs: for eigenfunctions supported on network modules the estimator reduces integrated squared error relative to sparse PCA, most strongly at small sample sizes, and recovers the supporting modules with higher precision.",
+     "bullets": []
+    },
+    {
+     "heading": "Application",
+     "body": "Working-memory magnetoencephalography from the Human Connectome Project, and longitudinal resting-state fMRI from ADNI, where component scores enter a joint model for conversion risk.",
+     "bullets": []
+    },
+    {
+     "heading": "Status",
+     "body": "Manuscript in preparation with Dr. Kehui Chen, from doctoral work at the University of Pittsburgh.",
+     "bullets": []
+    }
+   ]
+  },
+  {
+   "slug": "pkqr",
+   "title": "Penalized Kernel Quantile Regression",
+   "kind": "Published",
+   "meta": "2022 · JSPI",
+   "glyph": "fan",
+   "body": "Identifies the partially linear structure of a varying coefficient quantile model, with a proximal ADMM algorithm and a plug-in bandwidth rule from high-dimensional kernel theory.",
+   "sections": [
+    {
+     "heading": "Contribution",
+     "body": "Published in the Journal of Statistical Planning and Inference, 2022, with Eun Ryung Lee and Seyoung Park.",
+     "bullets": [
+      "A method that identifies the partially linear structure of the varying coefficient model.",
+      "An efficient algorithm using the proximal alternating direction method of multipliers, with a convergence guarantee.",
+      "A novel plug-in bandwidth selection rule derived from high-dimensional kernel theory."
+     ]
+    },
+    {
+     "heading": "Model",
+     "body": "For a quantile level τ, the τ-th varying coefficient quantile regression expresses the response as a sum of coefficient functions of an index variable multiplied by covariates, with the conditional τ-th quantile of the error set to zero. Smooth coefficient functions are approximated locally linearly and estimated by minimizing a kernel-weighted check loss, integrated over the index and penalized to recover structure.",
+     "bullets": []
+    },
+    {
+     "heading": "Origin",
+     "body": "Extends the M.S. thesis at Sungkyunkwan University, \"Penalized Kernel Quantile Regression for Varying Coefficient Models\". Presented at the Korean Statistical Society, 2018 — graduate academic paper presentation award, 2nd place.",
+     "bullets": []
+    }
+   ]
+  },
+  {
+   "slug": "methylation-adhd",
+   "title": "Methylation and ADHD",
+   "kind": "Published",
+   "meta": "2023 · Sci. Reports",
+   "glyph": "manhattan",
+   "body": "First co-author. Prenatal sulfur dioxide exposure, genome-wide DNA methylation at ages 2 and 6, and ADHD rating scales at ages 4, 6 and 8 in a cohort of 329 mother–child pairs.",
+   "sections": [
+    {
+     "heading": "Question",
+     "body": "Whether epigenetic influence plays a role in the association between air pollution exposure and attention deficit hyperactivity disorder. Published in Scientific Reports, 2023; Cho and Choi contributed equally.",
+     "bullets": []
+    },
+    {
+     "heading": "Design",
+     "body": "A mother–child cohort of 329. Prenatal SO₂ exposure was related to ADHD rating scale (ARS) measured repeatedly at ages 4, 6 and 8. Whole blood was drawn at ages 2 and 6, and genome-wide DNA methylation was assayed for 51 children on the Illumina Infinium HumanMethylation BeadChip.",
+     "bullets": []
+    },
+    {
+     "heading": "Findings",
+     "body": "",
+     "bullets": [
+      "Prenatal SO₂ exposure was associated with ADHD symptoms.",
+      "Candidate gene analysis: methylation at 6 CpGs at age 2 was associated with prenatal SO₂ exposure levels.",
+      "Of those, cg07583420 (INS-IGF2) was persistently linked with ARS at ages 4, 6 and 8.",
+      "Epigenome-wide analysis: methylation at 6,733 CpG sites was associated with prenatal SO₂ exposure; 58 CpGs in the Notch signalling pathway were further associated with ARS at all three ages.",
+      "Methylation at age 6 was not associated with prenatal SO₂ exposure."
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "anomaly",
+   "title": "Anomaly Detection in Cyber-Physical Systems",
+   "kind": "Published",
+   "meta": "2019 · MileTS19",
+   "glyph": "window",
+   "body": "Contextual anomalies in the SWaT water-treatment dataset, found by measuring Kullback–Leibler divergence between sliding-window error distributions from RNN and MDN classifiers.",
+   "sections": [
+    {
+     "heading": "Problem",
+     "body": "Anomaly detection in cyber-physical systems, where anomalies are attacks intended to disrupt critical infrastructure. The Secure Water Treatment (SWaT) dataset simulates normal and attack states across water tanks. The focus is contextual anomalies, which the out-of-limit threshold method misses because they sit below the threshold.",
+     "bullets": []
+    },
+    {
+     "heading": "Method",
+     "body": "Prediction error patterns from recurrent neural network and mixture density network classifiers are analyzed statistically rather than thresholded.",
+     "bullets": [
+      "Generate anomaly scores with Local Outlier Factor and remove point anomalies.",
+      "Estimate an empirical error distribution over a fixed window size.",
+      "Slide the window and measure Kullback–Leibler divergence between distributions."
+     ]
+    },
+    {
+     "heading": "Result",
+     "body": "Contextual anomalies are detected more effectively than with a nearest neighbor distance approach. 5th Workshop on Mining and Learning from Time Series (MileTS19), Anchorage, Alaska.",
+     "bullets": []
+    }
+   ]
+  },
+  {
+   "slug": "excess-mortality",
+   "title": "COVID-19 Excess Mortality",
+   "kind": "Application",
+   "meta": "2020 · SNU",
+   "glyph": "band",
+   "body": "Random forest prediction intervals for monthly Korean mortality, compared against SARIMA and the EuroMOMO GLM baseline.",
+   "sections": [
+    {
+     "heading": "Definition",
+     "body": "Excess mortality is the number of deaths from all causes during a crisis above what would be expected under normal conditions. For COVID-19 it measures total pandemic impact better than confirmed COVID-19 death counts alone. Simple approaches compare this year against a five-year average, but mortality rises every year in an aging society.",
+     "bullets": []
+    },
+    {
+     "heading": "The GLM baseline and its limits",
+     "body": "EuroMOMO models a mortality baseline with an overdispersed Poisson GLM, using sine and cosine terms for seasonality; FLUMOMO extends this with weekly influenza activity and temperature.",
+     "bullets": [
+      "Assumes a Poisson distribution with overdispersion.",
+      "Sine and cosine seasonality is a strong assumption.",
+      "Ignores correlation between features such as influenza activity and extreme temperature.",
+      "Ignores the serial correlation structure of the time series."
+     ]
+    },
+    {
+     "heading": "Approach",
+     "body": "Reflect the serial correlation of mortality directly and use 95% prediction intervals to estimate 2020 excess mortality from monthly Korean total mortality. Three random forest methods were compared against SARIMA.",
+     "bullets": [
+      "Only one region showed excess mortality: Daegu, March 2020."
+     ]
+    },
+    {
+     "heading": "Status",
+     "body": "Seoul National University project, not published.",
+     "bullets": []
+    }
+   ]
+  },
+  {
+   "slug": "medical-services",
+   "title": "Demand and Supply of Medical Services",
+   "kind": "Application",
+   "meta": "2019 — 2020 · SNU",
+   "glyph": "cross",
+   "body": "Sixty-year projections of medical service demand and supply across Statistics Korea birth-rate scenarios, with regional distributions to 2047.",
+   "sections": [
+    {
+     "heading": "Goal",
+     "body": "Project at the Seoul National University College of Medicine with Dr. Yun-Chul Hong. To prepare for the next sixty years, demand and supply of medical services were projected across scenarios. All rights reserved by the college.",
+     "bullets": []
+    },
+    {
+     "heading": "Method",
+     "body": "Scenarios follow the birth rate simulations published by Statistics Korea. Demand was projected from past medical demand per capita by age group; supply was projected from the number of medical students admitted annually. Because the data accumulate annually over only a few years, basic statistical methods were used rather than machine learning.",
+     "bullets": []
+    },
+    {
+     "heading": "Outputs",
+     "body": "Estimated total demand and the demand–supply gap under present conditions, plus regional distributions for 2018 and projections to 2047 under both fixed and increased supply.",
+     "bullets": []
+    }
+   ]
+  },
+  {
+   "slug": "disease-network",
+   "title": "Disease Network from Insurance Claims",
+   "kind": "Application",
+   "meta": "2017 · SAS Global Forum",
+   "glyph": "network",
+   "body": "A network over 91 diseases built from HIRA claims using CMH tests on 4,095 disease pairs, alongside TAN and BAN Bayesian network models stratified by age and sex.",
+   "sections": [
+    {
+     "heading": "Data",
+     "body": "From the 14th SAS Analytics Championship in Korea, 2016 (2nd place), accepted at SAS Global Forum 2017. Because most Koreans are insured through HIRA, diagnosis data for most of the population is available from insurance claims.",
+     "bullets": []
+    },
+    {
+     "heading": "Edges by contingency table",
+     "body": "Contingency tables were built for all 4,095 pairs of 91 diseases and Cochran–Mantel–Haenszel tests applied. Nodes were filtered at α = 0.0001 and odds ratios used as weights. Spurious associations remain where the odds ratio confidence interval is wide due to small counts.",
+     "bullets": []
+    },
+    {
+     "heading": "Edges by Bayesian network",
+     "body": "Tree Augmented Naive Bayes (TAN) and Bayesian Network Augmented Naive Bayes (BAN) were fitted with age as the categorical target, split by sex, to see how the network changes with age and sex. TAN yields readable disease clusters; BAN is more complex, so analysis focused on specific disease neighborhoods — for women over 60, dementia, high blood pressure, and cerebral infarction.",
+     "bullets": []
+    }
+   ]
+  },
+  {
+   "slug": "microbiome",
+   "title": "Microbiome Analysis Tutorial",
+   "kind": "Teaching",
+   "meta": "2019 · SNU",
+   "glyph": "tree",
+   "body": "A phyloseq walkthrough written for the lab: phylogenetic trees, abundance bar graphs, heatmaps, and alpha and beta diversity.",
+   "sections": [
+    {
+     "heading": "Purpose",
+     "body": "A microbiome data analysis tutorial written for the lab at Seoul National University, covering the phyloseq workflow end to end in R.",
+     "bullets": []
+    },
+    {
+     "heading": "Contents",
+     "body": "",
+     "bullets": [
+      "Loading .biom data as the four phyloseq classes: OTU table, sample data, taxonomy table, phylogenetic tree.",
+      "Generating a phylogenetic tree from denovo sequences with adegenet and ape.",
+      "Relative and standardized abundance bar graphs with ggplot2.",
+      "Heatmaps with taxonomy filtering by count.",
+      "Alpha diversity: Chao1, Shannon, Simpson.",
+      "Beta diversity: unifrac, weighted unifrac, Bray–Curtis, DPCoA, reduced by NMDS and PCoA."
+     ]
+    }
+   ]
+  }
+ ],
+ "publications": [
+  {
+   "group": "In preparation",
+   "selected": true,
+   "title": "Survival Prediction with Multiple Longitudinal Biomarkers: Transformation Models and a Local Likelihood Approach",
+   "authors": "Jinwoo Cho, Kehui Chen",
+   "venue": "Local joint model (LJM)",
+   "url": "#/p/ljm",
+   "link": "Project"
+  },
+  {
+   "group": "In preparation",
+   "selected": true,
+   "title": "Network-assisted localized functional principal component analysis for brain imaging data",
+   "authors": "Jinwoo Cho, Kehui Chen",
+   "venue": "",
+   "url": "#/p/nalfpca",
+   "link": "Project"
+  },
+  {
+   "group": "In preparation",
+   "selected": true,
+   "title": "Longitudinal three-way network models for social network perceptions",
+   "authors": "Jinwoo Cho, Nynke M.D. Niezink",
+   "venue": "",
+   "url": "#/p/three-way",
+   "link": "Project"
+  },
+  {
+   "group": "Submitted",
+   "selected": true,
+   "title": "Dynamic prediction of survival outcomes using Jointly Estimated Landmarking approach",
+   "authors": "Jinwoo Cho, Kehui Chen",
+   "venue": "",
+   "url": "https://github.com/kevinjwcho/JEL",
+   "link": "Code"
+  },
+  {
+   "group": "Published",
+   "selected": true,
+   "title": "DNA methylation is associated with prenatal exposure to sulfur dioxide and childhood attention-deficit hyperactivity disorder symptoms",
+   "authors": "Yoon-Jung Choi, Jinwoo Cho, Yun-Chul Hong, … Youn-Hee Lim — Cho and Choi contributed equally",
+   "venue": "Scientific Reports, 13(1), 3501, 2023",
+   "url": "https://www.nature.com/articles/s41598-023-29843-y",
+   "link": "HTML"
+  },
+  {
+   "group": "Published",
+   "selected": true,
+   "title": "Penalized kernel quantile regression for varying coefficient models",
+   "authors": "Eun Ryung Lee, Jinwoo Cho, Seyoung Park",
+   "venue": "Journal of Statistical Planning and Inference, 217, 8–23, 2022",
+   "url": "https://www.sciencedirect.com/science/article/abs/pii/S0378375821000707",
+   "link": "HTML"
+  },
+  {
+   "group": "Published",
+   "title": "Prenatal and postnatal exposures to four metals mixture and IQ in 6-year-old children: A prospective cohort study in South Korea",
+   "authors": "Kyung-Shin Lee, Kyoung-Nam Kim, Young-Don Ahn, Yoon-Jung Choi, Jinwoo Cho, Yebin Jang, … Yun-Chul Hong",
+   "venue": "Environment International, 157, 106798, 2021",
+   "url": "",
+   "link": ""
+  },
+  {
+   "group": "Published",
+   "title": "Environmental and Genetic Risk Factors of Congenital Anomalies: an Umbrella Review of Systematic Reviews and Meta-Analyses",
+   "authors": "Kyung-Shin Lee, Yoon-Jung Choi, Jinwoo Cho, Hyunji Lee, Heejin Lee, Soo Jin Park, … Yun-Chul Hong",
+   "venue": "Journal of Korean Medical Science, 36(28), 2021",
+   "url": "",
+   "link": ""
+  },
+  {
+   "group": "Published",
+   "title": "Association Between Sleep Duration and Intelligence Quotient in 6-Year-Old Children",
+   "authors": "Kyung-Shin Lee, Johanna Inhyang Kim, Yoon-Jung Choi, Jinwoo Cho, Youn-Hee Lim, Bung-Nyun Kim, … Yun-Chul Hong",
+   "venue": "International Journal of Behavioral Medicine, 2021",
+   "url": "",
+   "link": ""
+  },
+  {
+   "group": "Published",
+   "title": "Types of COVID-19 clusters and their relationship with social distancing in the Seoul metropolitan area, South Korea",
+   "authors": "Yoon-Jung Choi, Min-Jung Park, Soo Jin Park, Dahye Hong, Sangmin Lee, Kyung-Shin Lee, Jinwoo Cho, … Jong-Koo Lee",
+   "venue": "International Journal of Infectious Diseases, 106, 363–369, 2021",
+   "url": "",
+   "link": ""
+  },
+  {
+   "group": "Published",
+   "title": "Associations between surrounding residential greenness and intelligence quotient in 6-year-old children",
+   "authors": "Kyung-Shin Lee, Bung-Nyun Kim, Jinwoo Cho, Yebin Yeji Jang, Yoon-Jung Choi, Woo-Seok Lee, … Yun-Chul Hong",
+   "venue": "Science of the Total Environment, 759, 143561, 2021",
+   "url": "",
+   "link": ""
+  },
+  {
+   "group": "Published",
+   "title": "Children's Greenness Exposure and IQ-Associated DNA Methylation: A Prospective Cohort Study",
+   "authors": "Kyung-Shin Lee, Yoon-Jung Choi, Jinwoo Cho, Sungji Moon, Youn-Hee Lim, Johanna Inhyang Kim, … Yun-Chul Hong",
+   "venue": "International Journal of Environmental Research and Public Health, 18(14), 7429, 2021",
+   "url": "",
+   "link": ""
+  },
+  {
+   "group": "Published",
+   "title": "Effect of prenatal bisphenol A exposure on child's obesity through epigenetic influence on insulin-like growth factor 2 receptor (IGF2R) gene",
+   "authors": "Yoon-Jung Choi, Kyung-Shin Lee, Yun-Chul Hong, Jinwoo Cho, et al.",
+   "venue": "Environment International, 143, 105929, 2020",
+   "url": "",
+   "link": ""
+  },
+  {
+   "group": "Published",
+   "title": "A systematic review on model selection in high-dimensional regression",
+   "authors": "Eun Ryung Lee, Jinwoo Cho, Kyusang Yu",
+   "venue": "Journal of the Korean Statistical Society, 48(1), 1–12, 2019",
+   "url": "",
+   "link": ""
+  },
+  {
+   "group": "Published",
+   "title": "Robust Anomaly Detection in Cyber Physical System using Kullback-Leibler Divergence in Error Distributions",
+   "authors": "Jinwoo Cho, et al.",
+   "venue": "5th Workshop on Mining and Learning from Time Series (MileTS19), Anchorage, Alaska, 2019",
+   "url": "",
+   "link": ""
+  }
+ ],
+ "news": [
+  {
+   "date": "Aug 01, 2025",
+   "text": "I have begun a special faculty position at CMU."
+  },
+  {
+   "date": "Feb 21, 2024",
+   "text": "I have been awarded the Mellon Fellowship for the 2024–2025 academic year."
+  },
+  {
+   "date": "Oct 08, 2023",
+   "text": "I have a poster presentation at the Keystone State Symposium, Penn State University."
+  }
+ ],
+ "software": [
+  {
+   "name": "LJM",
+   "status": "GitHub · v2.2",
+   "body": "Local joint model for dynamic survival prediction from one or several longitudinal biomarkers: transformation survival models, time-varying associations via B-splines, the PAQ-EM algorithm, and time-dependent AUC and prediction error. Currently distributed under its earlier name, JEL (Jointly Estimated Landmarking).",
+   "url": "https://github.com/kevinjwcho/JEL",
+   "link": "GitHub",
+   "install": "remotes::install_github(\"kevinjwcho/JEL\")"
+  },
+  {
+   "name": "rsiena (three-way fork)",
+   "status": "Fork · branch Jinwoo",
+   "body": "Fork of RSiena that adds three-way dependent variables for longitudinal cognitive social structure data, with slice-specific rates, shared or perceiver-specific parameters, and three-way effects and goodness-of-fit statistics.",
+   "url": "https://github.com/kevinjwcho/rsiena/tree/Jinwoo",
+   "link": "GitHub",
+   "install": "remotes::install_github(\"kevinjwcho/rsiena\", ref = \"Jinwoo\")"
+  }
+ ],
+ "cvSummary": [
+  {
+   "year": "2025 — present",
+   "title": "Special Faculty (Postdoc)",
+   "org": "Carnegie Mellon University, Statistics"
+  },
+  {
+   "year": "2020 — 2025",
+   "title": "Ph.D., Statistics",
+   "org": "University of Pittsburgh"
+  },
+  {
+   "year": "2019 — 2020",
+   "title": "Research Associate",
+   "org": "Seoul National University College of Medicine"
+  },
+  {
+   "year": "2016 — 2018",
+   "title": "M.S., Statistics",
+   "org": "Sungkyunkwan University"
+  },
+  {
+   "year": "2010 — 2016",
+   "title": "B.Econ., Statistics",
+   "org": "Sungkyunkwan University"
+  }
+ ],
+ "cv": [
+  {
+   "heading": "Employment",
+   "items": [
+    {
+     "year": "Aug 2025 — present",
+     "title": "Special Faculty (Post-Doctoral Fellow, Full-time)",
+     "org": "Carnegie Mellon University",
+     "notes": [
+      "Department of Statistics (Adviser: Dr. Nynke Niezink)",
+      "Institute of Complex Social Dynamics (ICSD)",
+      "Longitudinal three-way network analysis",
+      "Stochastic Actor-Oriented Model (SAOM)"
+     ]
+    },
+    {
+     "year": "Jul 2019 — Jul 2020",
+     "title": "Research Associate (Full-time)",
+     "org": "Seoul National University College of Medicine",
+     "notes": [
+      "Advised by Dr. Yun-Chul Hong",
+      "Managed EDC project and elderly cohort data",
+      "Analyzed microbiome, EWAS, GWAS, and longitudinal data",
+      "Forecasted demand and supply for the medical workforce",
+      "Developed algorithms for a healthcare system"
+     ]
+    },
+    {
+     "year": "Jul 2017 — Jun 2019",
+     "title": "Teaching and Research Assistant (Part-time)",
+     "org": "Department of Information Statistics, Korean National Open University",
+     "notes": []
+    },
+    {
+     "year": "May 2018 — Sep 2018",
+     "title": "Model Developer (Part-time)",
+     "org": "Begas, Inc., Seoul, South Korea",
+     "notes": [
+      "Shinhan Investment Corporation project",
+      "Stock markets index prediction using functional data analysis and R"
+     ]
+    },
+    {
+     "year": "Sep 2017 — Aug 2018",
+     "title": "Research Assistant (Full-time)",
+     "org": "Research Institute of Applied Statistics, Sungkyunkwan University",
+     "notes": [
+      "Statistical consulting",
+      "R and SAS programming teaching"
+     ]
+    },
+    {
+     "year": "Jan 2017 — Feb 2017",
+     "title": "Intern (Full-time)",
+     "org": "SAS Korea",
+     "notes": []
+    }
+   ]
+  },
+  {
+   "heading": "Education",
+   "items": [
+    {
+     "year": "Aug 2020 — Aug 2025",
+     "title": "Ph.D. in Statistics",
+     "org": "University of Pittsburgh, PA, US",
+     "notes": [
+      "Adviser: Dr. Kehui Chen"
+     ]
+    },
+    {
+     "year": "Sep 2016 — Aug 2018",
+     "title": "Master of Science in Statistics",
+     "org": "Sungkyunkwan University, Seoul, South Korea",
+     "notes": [
+      "Adviser: Dr. Eun Ryung Lee",
+      "Thesis: Penalized Kernel Quantile Regression for Varying Coefficient Models"
+     ]
+    },
+    {
+     "year": "Mar 2010 — Aug 2016",
+     "title": "Bachelor of Economics, Statistics",
+     "org": "Sungkyunkwan University, Seoul, South Korea",
+     "notes": []
+    }
+   ]
+  },
+  {
+   "heading": "Teaching",
+   "items": [
+    {
+     "year": "2024 — 2025 AY",
+     "title": "TA mentor",
+     "org": "University of Pittsburgh",
+     "notes": [
+      "Provided peer advice to TAs and TFs on classroom management and grading",
+      "Reported TA and TF concerns to enhance teaching practices",
+      "Disseminated instructional resources from the Dean's Office and Teaching Center"
+     ]
+    },
+    {
+     "year": "Summer 2022, 2023",
+     "title": "Instructor — STAT 1000: Applied Statistical Methods",
+     "org": "University of Pittsburgh",
+     "notes": [
+      "Introduction to statistics for undergraduates, six weeks"
+     ]
+    },
+    {
+     "year": "2021 — 2024",
+     "title": "Teaching Assistant",
+     "org": "University of Pittsburgh",
+     "notes": [
+      "Summer 2024: STAT 1000",
+      "Spring 2024: STAT 1311 Applied Multivariate Analysis, STAT 3694 Topics in Advanced STAT 4",
+      "Fall 2023: STAT 2711 Probability Theory I, STAT 2261 Survival Analysis, STAT 1341 Sports Analytics",
+      "Spring 2023: STAT 2641 Asymptotic Statistics, STAT 1100",
+      "Fall 2022: STAT 1000 Applied Statistical Methods",
+      "Fall 2021: STAT 1201 Applied Nonparametric Statistics",
+      "Spring 2021: STAT 1100 Statistics and Probability for Business Management"
+     ]
+    }
+   ]
+  },
+  {
+   "heading": "Honors and Awards",
+   "items": [
+    {
+     "year": "Feb 2024",
+     "title": "Andrew Mellon Predoctoral Fellowship",
+     "org": "The Dietrich School of Arts & Sciences, University of Pittsburgh",
+     "notes": [
+      "One-year fellowship, 2024–2025 AY"
+     ]
+    },
+    {
+     "year": "Aug 2020",
+     "title": "Arts and Sciences Fellowship",
+     "org": "The Dietrich School of Arts & Sciences, University of Pittsburgh",
+     "notes": [
+      "One-year fellowship, 2020–2021 AY"
+     ]
+    },
+    {
+     "year": "May 2018",
+     "title": "Graduate academic paper presentation award, 2nd place",
+     "org": "The Korean Statistical Society",
+     "notes": [
+      "Presentation: Penalized Local Linear Quantile Regression for Varying Coefficient Models"
+     ]
+    },
+    {
+     "year": "Apr 2017, Apr 2018",
+     "title": "SAS Student Ambassador",
+     "org": "SAS Global Forum — Orlando, FL and Denver, CO",
+     "notes": [
+      "Presentation: Construction of a Disease Network and a Prediction Model for Dementia Using Health Insurance Claim Data in Korea",
+      "Poster: Analysis of Profitability-Bank Systems in South Korea Using SAS Base"
+     ]
+    },
+    {
+     "year": "Sep 2016",
+     "title": "The 14th SAS Analytics Championship in Korea, 2nd place",
+     "org": "SAS Korea",
+     "notes": [
+      "Topic: Analyze and Construct a Network of Diseases in which Koreans are Interested"
+     ]
+    },
+    {
+     "year": "2015 — 2018",
+     "title": "Academic Scholarship",
+     "org": "Sungkyunkwan University",
+     "notes": [
+      "Simsan scholarship for graduate students: Spring 2018, Fall 2017",
+      "Academic excellence scholarship for undergraduates: Spring 2016, Fall 2015"
+     ]
+    }
+   ]
+  },
+  {
+   "heading": "Professional Service",
+   "items": [
+    {
+     "year": "Reviewer",
+     "title": "Manuscript reviewer",
+     "org": "Journal of Statistical Software",
+     "notes": []
+    }
+   ]
+  },
+  {
+   "heading": "Presentation and Poster",
+   "items": [
+    {
+     "year": "2026",
+     "title": "Longitudinal three-way network analysis",
+     "org": "INSNA Sunbelt 2026",
+     "notes": []
+    },
+    {
+     "year": "2026",
+     "title": "Longitudinal three-way network analysis",
+     "org": "JSM 2026",
+     "notes": []
+    },
+    {
+     "year": "May 2025",
+     "title": "Dynamic prediction for survival outcomes with intensively observed longitudinal predictors",
+     "org": "Sungkyunkwan University Seminar, Seoul, Korea",
+     "notes": []
+    },
+    {
+     "year": "Aug 2024",
+     "title": "Dynamic prediction for survival outcomes with intensively observed longitudinal predictors",
+     "org": "JSM 2024, Portland, Oregon — Biometrics Section presentation",
+     "notes": []
+    },
+    {
+     "year": "Oct 2023",
+     "title": "Dynamic prediction for survival outcomes with intensively observed longitudinal predictors",
+     "org": "Keystone State Statistics Symposium, Penn State University — poster",
+     "notes": []
+    }
+   ]
+  },
+  {
+   "heading": "Technical Strengths",
+   "items": [
+    {
+     "year": "Languages",
+     "title": "R, Rcpp, Python, MATLAB, LaTeX, SAS",
+     "org": "",
+     "notes": []
+    },
+    {
+     "year": "Spoken",
+     "title": "Korean (native), English (fluent)",
+     "org": "",
+     "notes": []
+    },
+    {
+     "year": "Contact",
+     "title": "jinoojwcho@cmu.edu · kevinjwcho@gmail.com",
+     "org": "Department of Statistics, Carnegie Mellon University",
+     "notes": []
+    }
+   ]
+  }
+ ]
+};
+const CITATIONS = 257;
+const esc = (s) => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+const GL = (() => {
+  const L = (a,b,c,d,s) => '<line x1="'+a+'" y1="'+b+'" x2="'+c+'" y2="'+d+'" stroke="'+(s||'#c3c7cd')+'"/>';
+  const P = (d,s) => '<path d="'+d+'" stroke="'+(s||'#1B4DFF')+'"/>';
+  const C = (x,y,r) => '<circle cx="'+x+'" cy="'+y+'" r="'+(r||3.2)+'" fill="#1B4DFF" stroke="none"/>';
+  return {
+    trajectory: L(6,74,294,74,'#e0e2e6')+P('M6 62 C 44 58, 70 34, 104 40 S 162 24, 198 30 S 258 14, 294 8')+P('M6 70 C 50 68, 84 56, 120 60 S 190 48, 236 40 S 276 34, 294 26','#c3c7cd')+L(170,10,170,78,'#1B4DFF')+C(170,27)+C(170,46),
+    network: L(40,22,120,52)+L(120,52,218,24)+L(218,24,272,62)+L(120,52,160,76)+L(40,22,96,74)+L(96,74,160,76)+L(218,24,160,76)+C(40,22)+C(120,52)+C(218,24)+C(272,62)+C(96,74)+C(160,76),
+    netcurve: P('M6 68 C 52 64, 78 32, 112 44 S 178 22, 214 36 S 266 20, 294 14')+L(112,44,178,30)+L(178,30,240,42)+L(112,44,150,72)+L(150,72,240,42)+C(112,44)+C(178,30)+C(240,42)+C(150,72),
+    fan: L(6,76,294,76,'#e0e2e6')+P('M10 70 C 80 66, 170 58, 290 50')+P('M10 70 C 80 58, 170 40, 290 22','#c3c7cd')+P('M10 70 C 80 62, 170 50, 290 36')+P('M10 70 C 80 68, 170 66, 290 62','#c3c7cd')+C(290,22)+C(290,62),
+    manhattan: L(6,76,294,76,'#e0e2e6')+[16,34,52,70,88,124,142,160,178,196,232,250,268,286].map((x,i)=>L(x,76,x,[58,66,44,62,70,64,52,68,40,70,60,68,50,72][i])).join('')+L(106,76,106,30,'#1B4DFF')+L(214,76,214,22,'#1B4DFF')+C(106,30,2.8)+C(214,22,2.8),
+    window: '<rect x="96" y="12" width="78" height="64" fill="#1B4DFF" stroke="none"/>'+P('M6 46 L 26 38 L 40 54 L 58 34 L 76 50 L 94 36 L 112 58 L 130 30 L 148 62 L 166 34 L 184 52 L 202 26 L 220 56 L 238 40 L 256 50 L 274 36 L 294 48')+L(96,6,96,82)+L(174,6,174,82)+C(130,30,2.8)+C(148,62,2.8),
+    band: L(6,76,294,76,'#e0e2e6')+P('M6 30 C 60 26, 120 40, 176 32 S 250 22, 294 18','#c3c7cd')+P('M6 62 C 60 58, 120 70, 176 62 S 250 54, 294 50','#c3c7cd')+P('M6 46 C 60 42, 120 56, 176 46 S 250 38, 294 34')+C(212,22)+C(212,54),
+    cross: L(6,76,294,76,'#e0e2e6')+P('M6 66 C 70 62, 140 48, 210 32 S 270 18, 294 12')+P('M6 26 C 70 32, 140 44, 210 56 S 270 66, 294 70','#c3c7cd')+L(186,8,186,80)+C(186,40),
+    tree: P('M14 44 L 70 44')+P('M70 20 L 70 68')+P('M70 20 L 128 20')+P('M70 68 L 112 68')+P('M128 10 L 128 30')+P('M112 54 L 112 80')+P('M128 10 L 196 10')+P('M128 30 L 176 30')+P('M112 54 L 188 54')+P('M112 80 L 170 80')+C(196,10)+C(176,30)+C(188,54)+C(170,80)
+  };
+})();
+const glyph = (k) => '<svg class="gl" viewBox="0 0 300 88" width="100%" fill="none" stroke-width="1.3" stroke-linecap="round" aria-hidden="true" style="display:block;height:auto">' + (GL[k] || GL.trajectory) + '</svg>';
+
+const notes = (ns) => !ns || !ns.length ? '' : '<ul class="notes">' + ns.map((n) => '<li><span>&mdash;</span><span>' + esc(n) + '</span></li>').join('') + '</ul>';
+const pubRow = (p) => '<div class="row"><div class="t">' + esc(p.title) + '</div><div class="a">' + esc(p.authors) + '</div><div class="foot"><span class="v">' + esc(p.venue || p.group) + '</span>' + (p.link ? '<a class="more" href="' + esc(p.url) + '">' + esc(p.link) + '</a>' : '') + '</div></div>';
+const tlRow = (it) => '<div class="tl"><div class="y">' + esc(it.year) + '</div><div class="b"><div class="n">' + esc(it.title) + '</div>' + (it.org ? '<div class="o">' + esc(it.org) + '</div>' : '') + notes(it.notes) + '</div></div>';
+
+function landing() {
+  const featured = DATA.projects.slice(0, 4);
+  return '<section data-enter>' +
+    '<p class="lead">Predicting risk from data that arrive over time, on networks, and in high dimensions.</p>' +
+    '<p class="intro">I build statistical methods for data that arrive with structure attached. Three threads run through the work: network data analysis, dynamic prediction in survival analysis, and high-dimensional estimation that uses a known network as prior information. At CMU I work with Dr. Nynke Niezink on longitudinal three-way network analysis at the Institute of Complex Social Dynamics. I earned my Ph.D. in Statistics from the University of Pittsburgh under Dr. Kehui Chen, working on dynamic prediction for survival outcomes and network-assisted functional data analysis. Before that I was a Research Associate at the Seoul National University College of Medicine, analyzing gene expression and methylation data, microbiome compositions, and time-series biomarkers.</p>' +
+  '</section>' +
+  '<section id="projects" data-sr><div class="head"><h2 class="label">Selected Projects</h2><a class="more" href="#/projects">All ' + DATA.projects.length + ' projects &rarr;</a></div><div class="grid">' +
+    featured.map((p) => '<a class="card" href="#/p/' + p.slug + '"><div class="rule"></div><div class="top"><span class="kind">' + esc(p.kind) + '</span><span class="meta">' + esc(p.meta) + '</span></div><h3>' + esc(p.title) + '</h3><div class="reveal"><div class="fig">' + glyph(p.glyph) + '</div><p>' + esc(p.body) + '</p></div></a>').join('') +
+  '</div></section>' +
+  '<section id="software" data-sr><h2 class="label" style="margin-bottom:18px">Software</h2>' +
+    DATA.software.map((s) => '<div class="sw"><div style="flex:1 1 300px;min-width:0"><div style="display:flex;gap:10px;align-items:baseline;margin-bottom:5px"><span class="name">' + esc(s.name) + '</span><span class="kind">' + esc(s.status) + '</span></div><p>' + esc(s.body) + '</p></div><a class="more" href="' + esc(s.url) + '">' + esc(s.link) + '</a></div>').join('') +
+  '</section>' +
+  '<section id="publications" data-sr><div class="head"><h2 class="label">Selected Publications</h2><a class="more" href="#/publications">All ' + DATA.publications.length + ' publications &rarr;</a></div>' +
+    DATA.publications.filter((p) => p.selected).map(pubRow).join('') +
+  '</section>' +
+  '<section id="cv" data-sr><div class="head"><h2 class="label">Appointments &amp; Education</h2><a class="more" href="#/cv">Full CV &rarr;</a></div>' +
+    DATA.cvSummary.map((c) => '<div class="tl"><div class="y">' + esc(c.year) + '</div><div class="b"><div class="n">' + esc(c.title) + '</div><div class="o">' + esc(c.org) + '</div></div></div>').join('') +
+  '</section>' +
+  '<section id="news" data-sr><h2 class="label" style="margin-bottom:18px">News</h2>' +
+    DATA.news.map((n) => '<div class="news"><div class="d">' + esc(n.date) + '</div><div class="x">' + esc(n.text) + '</div></div>').join('') +
+  '</section>';
+}
+
+function projectPage(slug) {
+  const p = DATA.projects.find((x) => x.slug === slug);
+  if (!p) return landing();
+  return '<article class="page" data-enter><a class="back" href="#/">&larr; All projects</a>' +
+    '<div class="top" style="display:flex;gap:10px;align-items:baseline;margin-bottom:10px"><span class="kind">' + esc(p.kind) + '</span><span class="meta">' + esc(p.meta) + '</span></div>' +
+    '<h1>' + esc(p.title) + '</h1><p class="plead">' + esc(p.body) + '</p>' +
+    '<div class="detailfig">' + glyph(p.glyph) + '</div>' +
+    p.sections.map((s) => '<section class="sect"><h2>' + esc(s.heading) + '</h2>' + (s.body ? '<p>' + esc(s.body) + '</p>' : '') + (s.bullets && s.bullets.length ? '<ul class="bullets">' + s.bullets.map((b) => '<li><span>&mdash;</span><span>' + esc(b) + '</span></li>').join('') + '</ul>' : '') + '</section>').join('') +
+    '<div style="padding-top:20px;border-top:1px solid var(--line);display:flex;gap:14px 28px;flex-wrap:wrap"><a class="back" style="margin:0" href="#/">&larr; All projects</a><a class="more" style="color:var(--label)" href="mailto:jinoojwcho@cmu.edu">Ask about this work</a></div>' +
+  '</article>';
+}
+
+function projectsPage() {
+  return '<article class="page" data-enter><a class="back" href="#/">&larr; Back</a><h1>Projects</h1>' +
+    '<p class="meta" style="margin:12px 0 clamp(28px,4vw,42px)">' + DATA.projects.length + ' projects, from the current manuscript back to earlier applied work.</p>' +
+    DATA.projects.map((p) => '<a class="listrow" href="#/p/' + p.slug + '"><div class="thumb">' + glyph(p.glyph) + '</div><div class="b"><div class="top" style="display:flex;gap:10px;align-items:baseline;margin-bottom:4px"><span class="kind">' + esc(p.kind) + '</span><span class="meta">' + esc(p.meta) + '</span></div><h2 style="font-weight:500;font-size:clamp(20px,2.1vw,24px);line-height:1.2">' + esc(p.title) + '</h2><p>' + esc(p.body) + '</p></div></a>').join('') +
+    '<div style="padding-top:20px;border-top:1px solid var(--line)"><a class="back" style="margin:0" href="#/">&larr; Back</a></div></article>';
+}
+
+function pubsPage() {
+  const groups = ['In preparation', 'Submitted', 'Published'];
+  return '<article class="page" data-enter><a class="back" href="#/">&larr; Back</a><h1 style="margin-bottom:clamp(28px,4vw,42px)">Publications</h1>' +
+    groups.map((g) => {
+      const items = DATA.publications.filter((p) => p.group === g);
+      if (!items.length) return '';
+      return '<section class="sect" style="padding-top:0"><h2>' + esc(g) + '</h2>' + items.map(pubRow).join('') + '</section>';
+    }).join('') +
+    '<div style="padding-top:20px;border-top:1px solid var(--line)"><a class="back" style="margin:0" href="#/">&larr; Back</a></div></article>';
+}
+
+function cvPage() {
+  return '<article class="page" data-enter><a class="back" href="#/">&larr; Back</a>' +
+    '<div style="display:flex;flex-wrap:wrap;gap:14px 24px;align-items:baseline;justify-content:space-between;margin-bottom:clamp(30px,4vw,44px)"><h1>Curriculum Vitae</h1><a class="btn" href="assets/pdf/Jinwoo_Cho_CV.pdf">Download PDF</a></div>' +
+    DATA.cv.map((b) => '<section class="sect" style="padding-top:0"><h2>' + esc(b.heading) + '</h2>' + b.items.map(tlRow).join('') + '</section>').join('') +
+    '<div style="padding-top:20px;border-top:1px solid var(--line)"><a class="back" style="margin:0" href="#/">&larr; Back</a></div></article>';
+}
+
+const main = document.getElementById('main');
+const FOOT = '<footer><span>&copy; 2026 Jinwoo Cho</span><span>Pittsburgh, PA</span></footer>';
+let io;
+
+function reveal() {
+  if (!io) {
+    io = new IntersectionObserver((es) => es.forEach((e) => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }), { rootMargin: '0px 0px -6% 0px', threshold: .04 });
+  }
+  document.querySelectorAll('[data-sr]:not(.in)').forEach((el) => io.observe(el));
+}
+
+function spy() {
+  const links = Array.from(document.querySelectorAll('[data-nav]'));
+  let cur = null;
+  links.forEach((a) => {
+    const s = document.getElementById(a.getAttribute('data-nav'));
+    if (s && s.getBoundingClientRect().top <= 140) cur = a;
+  });
+  links.forEach((a) => a.setAttribute('data-active', a === cur ? '1' : '0'));
+}
+
+function route() {
+  const h = location.hash.replace(/^#\/?/, '');
+  const anchor = h.indexOf('#') >= 0 ? h.slice(h.indexOf('#') + 1) : '';
+  const path = (anchor ? h.slice(0, h.indexOf('#')) : h).replace(/\/$/, '');
+  let view;
+  if (path.indexOf('p/') === 0) view = projectPage(path.slice(2));
+  else if (path === 'projects') view = projectsPage();
+  else if (path === 'publications') view = pubsPage();
+  else if (path === 'cv') view = cvPage();
+  else view = landing();
+  main.innerHTML = view + FOOT;
+  reveal();
+  if (anchor) {
+    const el = document.getElementById(anchor);
+    if (el) window.scrollTo(0, el.getBoundingClientRect().top + window.pageYOffset - 24);
+  } else {
+    window.scrollTo(0, 0);
+  }
+  spy();
+  requestAnimationFrame(spy);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(spy);
+}
+
+window.addEventListener('load', spy);
+window.addEventListener('hashchange', route);
+window.addEventListener('scroll', () => {
+  if (window.__raf) return;
+  window.__raf = requestAnimationFrame(() => { window.__raf = null; spy(); });
+}, { passive: true });
+route();
+</script>
+</body>
+</html>

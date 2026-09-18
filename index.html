@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&family=Schibsted+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="./site/data.js"></script>
+<style>
+  html,body{margin:0;padding:0;background:#FFFFFF}
+  *{box-sizing:border-box}
+  a{color:#0066CC;text-decoration:none;border-bottom:1px solid rgba(0,102,204,.32)}
+  a:hover{color:#1A1C1D;border-bottom-color:#1A1C1D}
+  @keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+</style>
+</helmet>
+<div style="background:#FFFFFF;color:#1A1C1D;font-family:'Instrument Sans',system-ui,sans-serif;min-height:100vh;padding:0 clamp(20px,5vw,72px) 0">
+
+  <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;padding:22px 0 18px;border-bottom:1px solid #E7E8E9;flex-wrap:wrap">
+    <div style="font-family:'Schibsted Grotesk','Instrument Sans',system-ui,sans-serif;font-size:19px;font-weight:500;letter-spacing:-.015em">Jinwoo (Kevin) Cho</div>
+    <div style="display:flex;gap:24px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#61666A;flex-wrap:wrap">
+      <a href="#works" style="color:#61666A;border:0">works</a>
+      <a href="#writing" style="color:#61666A;border:0">publications</a>
+      <a href="#record" style="color:#61666A;border:0">record</a>
+      <a href="#contact" style="color:#61666A;border:0">contact</a>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:clamp(0px,calc((100vw - 1040px) * 10),160px) minmax(0,1fr);align-items:start">
+
+    <div data-rail-box style="position:sticky;top:26px;overflow:hidden;padding:0">
+      <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#61666A;margin:44px 20px 0 0;padding-bottom:12px;border-bottom:1px solid #E7E8E9;white-space:nowrap">index</div>
+      <div style="display:flex;flex-direction:column;gap:2px;margin-right:20px;padding-top:12px">
+        <a data-rail="works" href="#works" style="display:flex;gap:9px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11.5px;color:#6E7174;border:0;padding:5px 0;white-space:nowrap"><span style="color:#61666A">01</span><span>works</span></a>
+        <a data-rail="writing" href="#writing" style="display:flex;gap:9px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11.5px;color:#6E7174;border:0;padding:5px 0;white-space:nowrap"><span style="color:#61666A">02</span><span>publications</span></a>
+        <a data-rail="record" href="#record" style="display:flex;gap:9px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11.5px;color:#6E7174;border:0;padding:5px 0;white-space:nowrap"><span style="color:#61666A">03</span><span>record</span></a>
+        <a data-rail="contact" href="#contact" style="display:flex;gap:9px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11.5px;color:#6E7174;border:0;padding:5px 0;white-space:nowrap"><span style="color:#61666A">04</span><span>contact</span></a>
+      </div>
+    </div>
+
+    <div style="min-width:0">
+
+      <div style="display:grid;grid-template-columns:minmax(0,1.32fr) minmax(0,1fr);gap:12px;margin:14px 0 0;animation:fade .8s ease both">
+        <div style="background-color:#F3F4F4;background-image:radial-gradient(#DBDDDE 1px,transparent 1px);background-size:20px 20px;border-radius:20px;padding:clamp(34px,5vw,60px) clamp(30px,4vw,52px);display:flex;flex-direction:column;justify-content:space-between;gap:44px;min-height:min(74vh,620px)">
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#61666A">statistician · carnegie mellon university</div>
+          <h1 style="font-family:'Schibsted Grotesk','Instrument Sans',system-ui,sans-serif;font-weight:500;font-size:clamp(36px,5.6vw,78px);line-height:1.02;margin:0;letter-spacing:-.032em;text-wrap:balance">Methods for data that<br><span style="color:#0066CC">move, connect,</span><br>and accumulate.</h1>
+          <p style="margin:0;max-width:46ch;font-size:16.5px;line-height:1.62;color:#43464A;text-wrap:pretty">Longitudinal biomarkers and survival, dynamic networks, and high-dimensional regression. I build estimators that hold up when the data are noisy, irregular, and observed over time.</p>
+        </div>
+        <div style="display:grid;grid-template-rows:1fr 1fr;gap:12px">
+          <div style="background:#F3F4F4;border-radius:20px;padding:clamp(26px,3.4vw,38px);display:flex;flex-direction:column;justify-content:space-between;gap:20px">
+            <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#61666A">now</div>
+            <div>
+              <div style="font-family:'Schibsted Grotesk','Instrument Sans',system-ui,sans-serif;font-size:clamp(21px,2.2vw,28px);line-height:1.2;letter-spacing:-.02em;font-weight:500">Special Faculty, Department of Statistics &amp; Data Science</div>
+              <div style="margin-top:12px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;color:#6E7174">Carnegie Mellon University · since 2025-08</div>
+            </div>
+          </div>
+          <div style="background:#F3F4F4;border-radius:20px;padding:clamp(26px,3.4vw,38px);display:flex;flex-direction:column;justify-content:space-between;gap:20px">
+            <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#61666A">working on</div>
+            <div style="display:flex;flex-direction:column;gap:9px;font-size:15.5px;line-height:1.5">
+              <div style="display:flex;gap:14px"><span style="font-family:'IBM Plex Mono',ui-monospace,monospace;color:#0066CC;font-size:11.5px;padding-top:4px">01</span><span>Local joint models for dynamic survival prediction</span></div>
+              <div style="display:flex;gap:14px"><span style="font-family:'IBM Plex Mono',ui-monospace,monospace;color:#0066CC;font-size:11.5px;padding-top:4px">02</span><span>Three-way SAOM for network perceptions</span></div>
+              <div style="display:flex;gap:14px"><span style="font-family:'IBM Plex Mono',ui-monospace,monospace;color:#0066CC;font-size:11.5px;padding-top:4px">03</span><span>Network-assisted localized FPCA for brain imaging</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div data-stats style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:1px;background:#E7E8E9;border:1px solid #E7E8E9;border-radius:12px;overflow:hidden;margin:12px 0 0;font-family:'IBM Plex Mono',ui-monospace,monospace">
+        <div style="background:#FFFFFF;padding:16px 20px"><div style="font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#61666A">publications</div><div style="margin-top:6px;font-size:20px;color:#1A1C1D">{{ pubCount }}</div></div>
+        <div style="background:#FFFFFF;padding:16px 20px"><div style="font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#61666A">citations</div><div style="margin-top:6px;font-size:20px;color:#1A1C1D">257</div></div>
+        <div style="background:#FFFFFF;padding:16px 20px"><div style="font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#61666A">active since</div><div style="margin-top:6px;font-size:20px;color:#1A1C1D">2016</div></div>
+        <div style="background:#FFFFFF;padding:16px 20px"><div style="font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#61666A">r packages</div><div style="margin-top:6px;font-size:20px;color:#1A1C1D">{{ pkgCount }}</div></div>
+      </div>
+
+      <div id="works" style="padding:clamp(64px,9vw,112px) 0 0;scroll-margin-top:90px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid #D9DBDC;padding-bottom:14px;gap:16px;flex-wrap:wrap">
+          <h2 style="font-family:'Schibsted Grotesk','Instrument Sans',system-ui,sans-serif;font-weight:500;font-size:clamp(23px,2.8vw,33px);margin:0;letter-spacing:-.02em">Selected work</h2>
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#61666A">06 / 10</div>
+        </div>
+
+        <div data-enter onMouseEnter="{{ draw }}" style="display:grid;grid-template-columns:minmax(0,1fr) clamp(150px,18vw,220px);gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(28px,3.4vw,42px) 0;border-bottom:1px solid #E7E8E9">
+          <div>
+            <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#61666A">01 — manuscript · in preparation</div>
+            <h3 style="font-family:'Schibsted Grotesk','Instrument Sans',system-ui,sans-serif;font-weight:500;font-size:clamp(25px,3.1vw,38px);line-height:1.1;margin:12px 0 0;letter-spacing:-.025em">Local Joint Model</h3>
+            <p style="margin:12px 0 0;max-width:60ch;font-size:16px;line-height:1.6;color:#43464A;text-wrap:pretty">Dynamic prediction of survival from multiple longitudinal biomarkers. Local linear mixed effects at a landmark time, a transformation family that contains Cox and proportional odds, and PAQ-EM, which reduces the random-effects integral to one dimension. With Kehui Chen.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;color:#43464A">
+              <span style="padding:4px 9px;border:1px solid #D9DBDC;border-radius:999px">survival</span>
+              <span style="padding:4px 9px;border:1px solid #D9DBDC;border-radius:999px">PAQ-EM</span>
+              <span style="padding:4px 9px;border:1px solid #D9DBDC;border-radius:999px">R</span>
+            </div>
+          </div>
+          <div data-plate>
+            <div style="aspect-ratio:1/1;background:#F3F4F4;border-radius:14px;display:grid;place-items:center;padding:15%">
+              <svg viewBox="0 0 100 100" style="width:100%;height:auto;overflow:visible" fill="none" stroke-width="1.4" stroke-linecap="round">
+                <line x1="8" y1="88" x2="92" y2="88" stroke="#C3C6C8"></line>
+                <line x1="8" y1="88" x2="8" y2="12" stroke="#C3C6C8"></line>
+                <line x1="30" y1="88" x2="30" y2="91" stroke="#C3C6C8"></line>
+                <line x1="62" y1="88" x2="62" y2="91" stroke="#C3C6C8"></line>
+                <line x1="5" y1="50" x2="8" y2="50" stroke="#C3C6C8"></line>
+                <line x1="62" y1="12" x2="62" y2="88" stroke="#C3C6C8" stroke-dasharray="3 4"></line>
+                <path d="M10 74 C24 70 32 54 44 50 56 46 60 34 62 28" stroke="#1A1C1D"></path>
+                <path d="M10 82 C26 80 38 70 48 66 58 62 64 58 62 54" stroke="#0066CC"></path>
+                <path d="M62 28 C72 24 80 22 90 20" stroke="#1A1C1D" stroke-dasharray="2 4"></path>
+              </svg>
+            </div>
+            <div style="margin-top:9px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;line-height:1.45;color:#6E7174">fig 01 — biomarker paths at landmark s</div>
+          </div>
+        </div>
+
+        <div data-enter onMouseEnter="{{ draw }}" style="display:grid;grid-template-columns:minmax(0,1fr) clamp(150px,18vw,220px);gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(28px,3.4vw,42px) 0;border-bottom:1px solid #E7E8E9">
+          <div>
+            <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#61666A">02 — manuscript · in preparation</div>
+            <h3 style="font-family:'Schibsted Grotesk','Instrument Sans',system-ui,sans-serif;font-weight:500;font-size:clamp(25px,3.1vw,38px);line-height:1.1;margin:12px 0 0;letter-spacing:-.025em">Three-Way Network Dynamics</h3>
+            <p style="margin:12px 0 0;max-width:60ch;font-size:16px;line-height:1.6;color:#43464A;text-wrap:pretty">A Stochastic Actor-Oriented Model for cognitive social structures: ties from sender to receiver as seen by each perceiver, evolving together with self-reported ties. Built as an extension of RSiena. With Nynke Niezink.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;color:#43464A">
+              <span style="padding:4px 9px;border:1px solid #D9DBDC;border-radius:999px">SAOM</span>
+              <span style="padding:4px 9px;border:1px solid #D9DBDC;border-radius:999px">perception</span>
+              <span style="padding:4px 9px;border:1px solid #D9DBDC;border-radius:999px">RSiena</span>
+            </div>
+          </div>
+          <div data-plate>
+            <div style="aspect-ratio:1/1;background:#F3F4F4;border-radius:14px;display:grid;place-items:center;padding:15%">
+              <svg viewBox="0 0 100 100" style="width:100%;height:auto;overflow:visible" fill="none" stroke-width="1.4">
+                <path d="M24 26 L70 34 L44 72 Z" stroke="#1A1C1D"></path>
+                <path d="M70 34 L82 68 L44 72" stroke="#0066CC"></path>
+                <path d="M24 26 L18 62 L44 72" stroke="#C3C6C8"></path>
+                <circle cx="24" cy="26" r="4.5" fill="#F3F4F4" stroke="#1A1C1D"></circle>
+                <circle cx="70" cy="34" r="4.5" fill="#F3F4F4" stroke="#1A1C1D"></circle>
+                <circle cx="44" cy="72" r="4.5" fill="#F3F4F4" stroke="#1A1C1D"></circle>
+                <circle cx="82" cy="68" r="3.4" fill="#F3F4F4" stroke="#0066CC"></circle>
+                <circle cx="18" cy="62" r="3.4" fill="#F3F4F4" stroke="#C3C6C8"></circle>
+              </svg>
+            </div>
+            <div style="margin-top:9px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;line-height:1.45;color:#6E7174">fig 02 — ties as seen by a perceiver</div>
+          </div>
+        </div>
+
+        <div data-enter onMouseEnter="{{ draw }}" style="display:grid;grid-template-columns:minmax(0,1fr) clamp(150px,18vw,220px);gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(28px,3.4vw,42px) 0;border-bottom:1px solid #E7E8E9">
+          <div>
+            <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#61666A">03 — manuscript · in preparation</div>
+            <h3 style="font-family:'Schibsted Grotesk','Instrument Sans',system-ui,sans-serif;font-weight:500;font-size:clamp(25px,3.1vw,38px);line-height:1.1;margin:12px 0 0;letter-spacing:-.025em">Network-Assisted Localized FPCA</h3>
+            <p style="margin:12px 0 0;max-width:60ch;font-size:16px;line-height:1.6;color:#43464A;text-wrap:pretty">Eigenfunctions of brain activity that are sparse and smooth along a functional connectivity network rather than along anatomical distance. Applied to HCP working-memory MEG and longitudinal ADNI fMRI. With Kehui Chen.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;color:#43464A">
+              <span style="padding:4px 9px;border:1px solid #D9DBDC;border-radius:999px">FPCA</span>
+              <span style="padding:4px 9px;border:1px solid #D9DBDC;border-radius:999px">MEG · fMRI</span>
+              <span style="padding:4px 9px;border:1px solid #D9DBDC;border-radius:999px">graph penalty</span>
+            </div>
+          </div>
+          <div data-plate>
+            <div style="aspect-ratio:1/1;background:#F3F4F4;border-radius:14px;display:grid;place-items:center;padding:15%">
+              <svg viewBox="0 0 100 100" style="width:100%;height:auto;overflow:visible" fill="none" stroke-width="1.4" stroke-linecap="round">
+                <path d="M8 34 C22 14 34 52 48 32 62 12 74 48 92 26" stroke="#1A1C1D"></path>
+                <path d="M8 62 C22 46 36 76 50 58 64 40 76 72 92 54" stroke="#0066CC"></path>
+                <path d="M8 86 C24 76 36 94 52 84 68 74 78 90 92 82" stroke="#C3C6C8"></path>
+                <line x1="20" y1="24" x2="20" y2="86" stroke="#C3C6C8" stroke-dasharray="2 4"></line>
+                <line x1="62" y1="22" x2="62" y2="88" stroke="#C3C6C8" stroke-dasharray="2 4"></line>
+              </svg>
+            </div>
+            <div style="margin-top:9px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;line-height:1.45;color:#6E7174">fig 03 — regional curves, shared modes</div>
+          </div>
+        </div>
+
+        <div data-enter onMouseEnter="{{ draw }}" style="display:grid;grid-template-columns:minmax(0,1fr) clamp(150px,18vw,220px);gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(28px,3.4vw,42px) 0;border-bottom:1px solid #E7E8E9">
+          <div>
+            <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#61666A">04 — published · 2022, JSPI</div>
+            <h3 style="font-family:'Schibsted Grotesk','Instrument Sans',system-ui,sans-serif;font-weight:500;font-size:clamp(25px,3.1vw,38px);line-height:1.1;margin:12px 0 0;letter-spacing:-.025em">Penalized Kernel Quantile Regression</h3>
+            <p style="margin:12px 0 0;max-width:60ch;font-size:16px;line-height:1.6;color:#43464A;text-wrap:pretty">Identifies the partially linear structure of a varying coefficient quantile model, with a proximal ADMM algorithm and a plug-in bandwidth rule from high-dimensional kernel theory.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;color:#43464A">
+              <span style="padding:4px 9px;border:1px solid #D9DBDC;border-radius:999px">ADMM</span>
+              <span style="padding:4px 9px;border:1px solid #D9DBDC;border-radius:999px">quantile</span>
+              <span style="padding:4px 9px;border:1px solid #D9DBDC;border-radius:999px">high-dim</span>
+            </div>
+          </div>
+          <div data-plate>
+            <div style="aspect-ratio:1/1;background:#F3F4F4;border-radius:14px;display:grid;place-items:center;padding:15%">
+              <svg viewBox="0 0 100 100" style="width:100%;height:auto;overflow:visible" fill="none" stroke-width="1.4" stroke-linecap="round">
+                <line x1="8" y1="90" x2="92" y2="90" stroke="#C3C6C8"></line>
+                <line x1="8" y1="90" x2="8" y2="10" stroke="#C3C6C8"></line>
+                <line x1="34" y1="90" x2="34" y2="93" stroke="#C3C6C8"></line>
+                <line x1="62" y1="90" x2="62" y2="93" stroke="#C3C6C8"></line>
+                <path d="M10 76 C34 66 58 58 90 40" stroke="#C3C6C8"></path>
+                <path d="M10 66 C34 54 58 44 90 24" stroke="#0066CC"></path>
+                <path d="M10 56 C34 46 58 32 90 12" stroke="#1A1C1D"></path>
+                <path d="M10 84 C34 78 58 72 90 58" stroke="#C3C6C8"></path>
+              </svg>
+            </div>
+            <div style="margin-top:9px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;line-height:1.45;color:#6E7174">fig 04 — coefficient fits across τ</div>
+          </div>
+        </div>
+
+        <div data-enter onMouseEnter="{{ draw }}" style="display:grid;grid-template-columns:minmax(0,1fr) clamp(150px,18vw,220px);gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(28px,3.4vw,42px) 0;border-bottom:1px solid #E7E8E9">
+          <div>
+            <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#61666A">05 — published · 2023, Scientific Reports</div>
+            <h3 style="font-family:'Schibsted Grotesk','Instrument Sans',system-ui,sans-serif;font-weight:500;font-size:clamp(25px,3.1vw,38px);line-height:1.1;margin:12px 0 0;letter-spacing:-.025em">Methylation and ADHD</h3>
+            <p style="margin:12px 0 0;max-width:60ch;font-size:16px;line-height:1.6;color:#43464A;text-wrap:pretty">First co-author. Prenatal sulfur dioxide exposure, genome-wide DNA methylation at ages 2 and 6, and ADHD rating scales at ages 4, 6 and 8 across 329 mother–child pairs.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;color:#43464A">
+              <span style="padding:4px 9px;border:1px solid #D9DBDC;border-radius:999px">EWAS</span>
+              <span style="padding:4px 9px;border:1px solid #D9DBDC;border-radius:999px">cohort</span>
+              <span style="padding:4px 9px;border:1px solid #D9DBDC;border-radius:999px">R</span>
+            </div>
+          </div>
+          <div data-plate>
+            <div style="aspect-ratio:1/1;background:#F3F4F4;border-radius:14px;display:grid;place-items:center;padding:15%">
+              <svg viewBox="0 0 100 100" style="width:100%;height:auto;overflow:visible" fill="none" stroke-width="1.4" stroke-linecap="round">
+                <line x1="8" y1="88" x2="92" y2="88" stroke="#C3C6C8"></line>
+                <line x1="8" y1="34" x2="92" y2="34" stroke="#C3C6C8" stroke-dasharray="2 4"></line>
+                <line x1="14" y1="88" x2="14" y2="70" stroke="#1A1C1D"></line><line x1="22" y1="88" x2="22" y2="60" stroke="#1A1C1D"></line>
+                <line x1="30" y1="88" x2="30" y2="76" stroke="#1A1C1D"></line><line x1="38" y1="88" x2="38" y2="24" stroke="#0066CC"></line>
+                <line x1="46" y1="88" x2="46" y2="66" stroke="#1A1C1D"></line><line x1="54" y1="88" x2="54" y2="78" stroke="#1A1C1D"></line>
+                <line x1="62" y1="88" x2="62" y2="18" stroke="#0066CC"></line><line x1="70" y1="88" x2="70" y2="62" stroke="#1A1C1D"></line>
+                <line x1="78" y1="88" x2="78" y2="74" stroke="#1A1C1D"></line><line x1="86" y1="88" x2="86" y2="54" stroke="#1A1C1D"></line>
+              </svg>
+            </div>
+            <div style="margin-top:9px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;line-height:1.45;color:#6E7174">fig 05 — CpG association scan</div>
+          </div>
+        </div>
+
+        <div data-enter onMouseEnter="{{ draw }}" style="display:grid;grid-template-columns:minmax(0,1fr) clamp(150px,18vw,220px);gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(28px,3.4vw,42px) 0;border-bottom:1px solid #E7E8E9">
+          <div>
+            <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#61666A">06 — published · 2019, MileTS19</div>
+            <h3 style="font-family:'Schibsted Grotesk','Instrument Sans',system-ui,sans-serif;font-weight:500;font-size:clamp(25px,3.1vw,38px);line-height:1.1;margin:12px 0 0;letter-spacing:-.025em">Anomaly Detection in Cyber-Physical Systems</h3>
+            <p style="margin:12px 0 0;max-width:60ch;font-size:16px;line-height:1.6;color:#43464A;text-wrap:pretty">Contextual anomalies in the SWaT water-treatment data, found by measuring Kullback–Leibler divergence between sliding-window error distributions from RNN and MDN classifiers.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;color:#43464A">
+              <span style="padding:4px 9px;border:1px solid #D9DBDC;border-radius:999px">RNN</span>
+              <span style="padding:4px 9px;border:1px solid #D9DBDC;border-radius:999px">MDN</span>
+              <span style="padding:4px 9px;border:1px solid #D9DBDC;border-radius:999px">KL divergence</span>
+            </div>
+          </div>
+          <div data-plate>
+            <div style="aspect-ratio:1/1;background:#F3F4F4;border-radius:14px;display:grid;place-items:center;padding:15%">
+              <svg viewBox="0 0 100 100" style="width:100%;height:auto;overflow:visible" fill="none" stroke-width="1.4" stroke-linecap="round">
+                <rect x="30" y="16" width="30" height="72" fill="#E9EBEC" stroke="#0066CC" stroke-dasharray="3 4"></rect>
+                <path d="M8 58 L16 52 L22 62 L30 48 L38 66 L46 40 L54 70 L62 50 L70 60 L78 54 L92 58" stroke="#1A1C1D"></path>
+                <line x1="8" y1="58" x2="92" y2="58" stroke="#C3C6C8" stroke-dasharray="2 4"></line>
+              </svg>
+            </div>
+            <div style="margin-top:9px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;line-height:1.45;color:#6E7174">fig 06 — sliding window over error</div>
+          </div>
+        </div>
+
+        <div style="padding:26px 0 0;font-size:13.5px"><a href="./site/index.html#/projects">All ten projects, in full →</a></div>
+      </div>
+
+      <div id="writing" style="padding:clamp(64px,9vw,112px) 0 0;scroll-margin-top:90px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid #D9DBDC;padding-bottom:14px;gap:16px;flex-wrap:wrap">
+          <h2 style="font-family:'Schibsted Grotesk','Instrument Sans',system-ui,sans-serif;font-weight:500;font-size:clamp(23px,2.8vw,33px);margin:0;letter-spacing:-.02em">Publications</h2>
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#61666A">{{ pubCount }} entries · 257 citations</div>
+        </div>
+        <sc-for list="{{ pubs }}" as="p" hint-placeholder-count="5">
+          <div data-enter style="display:grid;grid-template-columns:clamp(110px,14vw,170px) minmax(0,1fr);gap:clamp(16px,3vw,40px);padding:22px 0;border-bottom:1px solid #E7E8E9">
+            <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#61666A;padding-top:5px">{{ p.group }}</div>
+            <div>
+              <div style="font-family:'Schibsted Grotesk','Instrument Sans',system-ui,sans-serif;font-size:clamp(18px,1.85vw,23px);line-height:1.28;letter-spacing:-.015em;font-weight:500">{{ p.title }}</div>
+              <div style="margin-top:8px;font-size:14px;color:#6E7174;line-height:1.5">{{ p.authors }}</div>
+              <div style="margin-top:6px;font-size:14px;color:#43464A;font-weight:500">{{ p.venue }}</div>
+              <button type="button" data-bib="{{ p.bib }}" onClick="{{ copyBib }}" style="margin-top:12px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:#43464A;background:#FFFFFF;border:1px solid #D9DBDC;border-radius:6px;padding:6px 10px;cursor:pointer" style-hover="border-color:#0066CC;color:#0066CC">copy bibtex</button>
+            </div>
+          </div>
+        </sc-for>
+        <div style="padding:26px 0 0;font-size:13.5px"><a href="./site/index.html#/publications">Full publication list →</a></div>
+      </div>
+
+      <div id="record" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(32px,5vw,72px);padding:clamp(64px,9vw,112px) 0 0;scroll-margin-top:90px">
+        <div>
+          <h2 style="font-family:'Schibsted Grotesk','Instrument Sans',system-ui,sans-serif;font-weight:500;font-size:clamp(21px,2.3vw,26px);margin:0 0 14px;letter-spacing:-.015em;padding-bottom:12px;border-bottom:1px solid #D9DBDC">Record</h2>
+          <sc-for list="{{ cvSummary }}" as="c" hint-placeholder-count="4">
+            <div data-enter style="display:flex;gap:18px;padding:14px 0;border-bottom:1px solid #E7E8E9">
+              <div style="flex:0 0 72px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11.5px;color:#61666A;padding-top:3px">{{ c.year }}</div>
+              <div style="min-width:0">
+                <div style="font-size:15.5px;line-height:1.45">{{ c.title }}</div>
+                <div style="margin-top:4px;font-size:13.5px;color:#6E7174">{{ c.org }}</div>
+              </div>
+            </div>
+          </sc-for>
+          <div style="padding:18px 0 0;font-size:13.5px"><a href="./site/index.html#/cv">Full CV →</a></div>
+        </div>
+        <div>
+          <h2 style="font-family:'Schibsted Grotesk','Instrument Sans',system-ui,sans-serif;font-weight:500;font-size:clamp(21px,2.3vw,26px);margin:0 0 14px;letter-spacing:-.015em;padding-bottom:12px;border-bottom:1px solid #D9DBDC">News</h2>
+          <sc-for list="{{ news }}" as="n" hint-placeholder-count="3">
+            <div data-enter style="padding:14px 0;border-bottom:1px solid #E7E8E9">
+              <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11.5px;color:#61666A">{{ n.date }}</div>
+              <div style="margin-top:6px;font-size:15.5px;line-height:1.5">{{ n.text }}</div>
+            </div>
+          </sc-for>
+          <h2 style="font-family:'Schibsted Grotesk','Instrument Sans',system-ui,sans-serif;font-weight:500;font-size:clamp(21px,2.3vw,26px);margin:38px 0 14px;letter-spacing:-.015em;padding-bottom:12px;border-bottom:1px solid #D9DBDC">Software</h2>
+          <sc-for list="{{ software }}" as="s" hint-placeholder-count="2">
+            <div data-enter style="border:1px solid #E7E8E9;border-radius:12px;overflow:hidden;margin-bottom:12px">
+              <div style="display:flex;justify-content:space-between;gap:12px;align-items:center;padding:13px 16px;border-bottom:1px solid #E7E8E9">
+                <a href="{{ s.url }}" style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:14px;font-weight:500;letter-spacing:-.01em;color:#0066CC;border:0">{{ s.name }}</a>
+                <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:#61666A">{{ s.status }}</div>
+              </div>
+              <div style="padding:14px 16px 16px">
+                <div style="font-size:14.5px;line-height:1.55;color:#43464A">{{ s.body }}</div>
+                <div style="margin-top:12px;background:#F3F4F4;border-radius:8px;padding:11px 13px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;color:#1A1C1D;overflow-x:auto;white-space:nowrap"><span style="color:#8E9193;user-select:none">&gt; </span>{{ s.install }}</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div id="contact" style="margin:clamp(64px,9vw,112px) 0 0;padding:clamp(40px,5vw,60px) clamp(30px,4vw,52px);background:#F3F4F4;border-radius:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:32px;align-items:end;scroll-margin-top:90px">
+        <div>
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#61666A">contact</div>
+          <div style="font-family:'Schibsted Grotesk','Instrument Sans',system-ui,sans-serif;font-weight:500;font-size:clamp(25px,2.9vw,36px);line-height:1.14;letter-spacing:-.025em;margin-top:14px">Always glad to talk<br>about method and data.</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13.5px">
+          <a href="mailto:jinoojwcho@cmu.edu">jinoojwcho@cmu.edu</a>
+          <a href="https://scholar.google.com/citations?user=Ls13qzcAAAAJ">google scholar</a>
+          <a href="https://orcid.org/0000-0002-5848-1770">orcid</a>
+          <a href="https://www.linkedin.com/in/kevinjwcho">linkedin</a>
+          <a href="https://github.com/kevinjwcho">github</a>
+        </div>
+      </div>
+
+      <div style="padding:26px 0 40px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;color:#61666A;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
+        <span>Department of Statistics &amp; Data Science, Carnegie Mellon University</span>
+        <span><a href="./site/index.html" style="color:#61666A;border-bottom-color:#D9DBDC">journal version →</a></span>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280},&quot;showRail&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Layout&quot;},&quot;showPlates&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Layout&quot;},&quot;showStats&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Layout&quot;}}">
+class Component extends DCLogic {
+  state = { data: null };
+
+  componentDidMount() {
+    const grab = () => {
+      if (window.DATA) { this.setState({ data: window.DATA }); return true; }
+      return false;
+    };
+    if (!grab()) {
+      const t = setInterval(() => { if (grab()) clearInterval(t); }, 60);
+      setTimeout(() => clearInterval(t), 6000);
+    }
+    this.pending = [];
+    this.onScroll = () => {
+      if (this.raf) return;
+      this.raf = requestAnimationFrame(() => { this.raf = 0; this.sweep(); this.rail(); this.applyProps(); });
+    };
+    addEventListener('scroll', this.onScroll, { passive: true });
+    addEventListener('resize', this.onScroll);
+    this.onHash = () => { [0, 120, 350, 700].forEach((ms) => setTimeout(() => { this.sweep(); this.rail(); }, ms)); };
+    addEventListener('hashchange', this.onHash);
+    this.tick = setInterval(() => { if (this.pending && this.pending.length) { this.sweep(); this.rail(); } }, 250);
+    this.onHash();
+    this.scan();
+    this.rail();
+    this.applyProps();
+  }
+
+  componentDidUpdate() { this.scan(); this.rail(); this.applyProps(); }
+
+  applyProps() {
+    const p = this.props || {};
+    const railOn = p.showRail !== false && innerWidth >= 1040;
+    const box = document.querySelector('[data-rail-box]');
+    if (box) {
+      box.style.display = railOn ? '' : 'none';
+      const grid = box.parentElement;
+      if (grid) grid.style.gridTemplateColumns = railOn ? '160px minmax(0,1fr)' : 'minmax(0,1fr)';
+    }
+    const stats = document.querySelector('[data-stats]');
+    if (stats) stats.style.display = p.showStats === false ? 'none' : '';
+    document.querySelectorAll('[data-plate]').forEach((el) => {
+      el.style.display = p.showPlates === false ? 'none' : '';
+      const row = el.parentElement;
+      if (row) row.style.gridTemplateColumns = p.showPlates === false
+        ? 'minmax(0,1fr)'
+        : 'minmax(0,1fr) clamp(150px,18vw,220px)';
+    });
+  }
+
+  get reduced() { return window.matchMedia('(prefers-reduced-motion: reduce)').matches; }
+
+  scan() {
+    if (this.reduced) return;
+    document.querySelectorAll('[data-enter]:not([data-seen])').forEach((el) => {
+      el.setAttribute('data-seen', '1');
+      const r = el.getBoundingClientRect();
+      if (r.bottom <= 0 || r.top < innerHeight * 0.92) return;
+      el.style.opacity = '0';
+      this.pending.push(el);
+    });
+    this.sweep();
+  }
+
+  sweep() {
+    if (!this.pending || !this.pending.length) return;
+    this.pending = this.pending.filter((el) => {
+      if (!el.isConnected) return false;
+      const r = el.getBoundingClientRect();
+      if (r.bottom <= 0) { el.style.opacity = ''; return false; }
+      if (r.top >= innerHeight) return true;
+      if (r.top < innerHeight * 0.92) el.style.animation = 'rise .72s cubic-bezier(.2,.7,.2,1) both';
+      else el.style.opacity = '';
+      return false;
+    });
+  }
+
+  rail() {
+    const ids = ['works', 'writing', 'record', 'contact'];
+    let active = ids[0];
+    ids.forEach((id) => {
+      const s = document.getElementById(id);
+      if (s && s.getBoundingClientRect().top <= 140) active = id;
+    });
+    document.querySelectorAll('[data-rail]').forEach((a) => {
+      const on = a.getAttribute('data-rail') === active;
+      a.style.color = on ? '#1A1C1D' : '#6E7174';
+      const num = a.firstElementChild;
+      if (num) num.style.color = on ? '#0066CC' : '#61666A';
+    });
+  }
+
+  copyBib = (e) => {
+    const btn = e.currentTarget;
+    const text = btn.getAttribute('data-bib') || '';
+    const done = () => {
+      const prev = btn.textContent;
+      btn.textContent = 'copied';
+      btn.style.borderColor = '#0066CC';
+      btn.style.color = '#0066CC';
+      setTimeout(() => {
+        btn.textContent = prev;
+        btn.style.borderColor = '#D9DBDC';
+        btn.style.color = '#43464A';
+      }, 1600);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, done);
+    } else {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); } catch (err) {}
+      ta.remove();
+      done();
+    }
+  };
+
+  draw = (e) => {
+    e.currentTarget.querySelectorAll('svg path, svg polyline').forEach((p, i) => {
+      let len = 0;
+      try { len = p.getTotalLength(); } catch (err) { return; }
+      if (!len || p.getAttribute('stroke-dasharray')) return;
+      p.style.transition = 'none';
+      p.style.strokeDasharray = len + ' ' + len;
+      p.style.strokeDashoffset = len;
+      requestAnimationFrame(() => {
+        p.style.transition = 'stroke-dashoffset .85s cubic-bezier(.3,.7,.2,1) ' + (i * 90) + 'ms';
+        p.style.strokeDashoffset = '0';
+      });
+    });
+  };
+
+  bib(p) {
+    const first = (p.authors || '').split(',')[0].trim().split(' ').pop() || 'cho';
+    const ym = (p.venue || '').match(/(19|20)\d{2}/);
+    const year = ym ? ym[0] : '';
+    const key = first.toLowerCase() + (year || '') + (p.title || '').split(' ')[0].toLowerCase();
+    const authors = (p.authors || '').split(',').map((a) => a.trim()).filter(Boolean).join(' and ');
+    return '@article{' + key + ',\n  author  = {' + authors + '},\n  title   = {' + (p.title || '') + '},\n  journal = {' + (p.venue || '') + '},\n' + (year ? '  year    = {' + year + '},\n' : '') + '}';
+  }
+
+  renderVals() {
+    const d = this.state.data || {};
+    const all = d.publications || [];
+    const pubs = all.filter((p) => p.selected).slice(0, 6).map((p) => Object.assign({}, p, { bib: this.bib(p) }));
+    const software = (d.software || []).map((s) => Object.assign({}, s, {
+      install: s.install || 'remotes::install_github("kevinjwcho/' + s.name + '")'
+    }));
+    return {
+      pubs,
+      pubCount: all.length || '',
+      pkgCount: software.length || '',
+      news: d.news || [],
+      software,
+      cvSummary: d.cvSummary || [],
+      draw: this.draw,
+      copyBib: this.copyBib
+    };
+  }
+}
+</script>
+</body>
+</html>
