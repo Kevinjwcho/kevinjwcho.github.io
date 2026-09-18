@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&family=Schibsted+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<script src="./site/data.js"></script>
+<script src="./detail/data.js"></script>
 <style>
   html,body{margin:0;padding:0;background:#FFFFFF}
   *{box-sizing:border-box}
@@ -19,6 +19,12 @@
   a:hover{color:#1A1C1D;border-bottom-color:#1A1C1D}
   @keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
   @keyframes fade{from{opacity:0}to{opacity:1}}
+  @media (max-width:720px){
+    [data-hero]{grid-template-columns:minmax(0,1fr)!important}
+    [data-hero]>div:first-child{min-height:0!important}
+    div:has(> [data-plate]){grid-template-columns:minmax(0,1fr)!important}
+    [data-plate]{max-width:200px}
+  }
 </style>
 </helmet>
 <div style="background:#FFFFFF;color:#1A1C1D;font-family:'Instrument Sans',system-ui,sans-serif;min-height:100vh;padding:0 clamp(20px,5vw,72px) 0">
@@ -47,7 +53,7 @@
 
     <div style="min-width:0">
 
-      <div style="display:grid;grid-template-columns:minmax(0,1.32fr) minmax(0,1fr);gap:12px;margin:14px 0 0;animation:fade .8s ease both">
+      <div data-hero style="display:grid;grid-template-columns:minmax(0,1.32fr) minmax(0,1fr);gap:12px;margin:14px 0 0;animation:fade .8s ease both">
         <div style="background-color:#F3F4F4;background-image:radial-gradient(#DBDDDE 1px,transparent 1px);background-size:20px 20px;border-radius:20px;padding:clamp(34px,5vw,60px) clamp(30px,4vw,52px);display:flex;flex-direction:column;justify-content:space-between;gap:44px;min-height:min(74vh,620px)">
           <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#61666A">statistician · carnegie mellon university</div>
           <h1 style="font-family:'Schibsted Grotesk','Instrument Sans',system-ui,sans-serif;font-weight:500;font-size:clamp(36px,5.6vw,78px);line-height:1.02;margin:0;letter-spacing:-.032em;text-wrap:balance">Methods for data that<br><span style="color:#0066CC">move, connect,</span><br>and accumulate.</h1>
@@ -72,7 +78,7 @@
         </div>
       </div>
 
-      <div data-stats style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:1px;background:#E7E8E9;border:1px solid #E7E8E9;border-radius:12px;overflow:hidden;margin:12px 0 0;font-family:'IBM Plex Mono',ui-monospace,monospace">
+      <div data-stats style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:#E7E8E9;border:1px solid #E7E8E9;border-radius:12px;overflow:hidden;margin:12px 0 0;font-family:'IBM Plex Mono',ui-monospace,monospace">
         <div style="background:#FFFFFF;padding:16px 20px"><div style="font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#61666A">publications</div><div style="margin-top:6px;font-size:20px;color:#1A1C1D">{{ pubCount }}</div></div>
         <div style="background:#FFFFFF;padding:16px 20px"><div style="font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#61666A">citations</div><div style="margin-top:6px;font-size:20px;color:#1A1C1D">257</div></div>
         <div style="background:#FFFFFF;padding:16px 20px"><div style="font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#61666A">active since</div><div style="margin-top:6px;font-size:20px;color:#1A1C1D">2016</div></div>
@@ -82,136 +88,24 @@
       <div id="works" style="padding:clamp(64px,9vw,112px) 0 0;scroll-margin-top:90px">
         <div style="display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid #D9DBDC;padding-bottom:14px;gap:16px;flex-wrap:wrap">
           <h2 style="font-family:'Schibsted Grotesk','Instrument Sans',system-ui,sans-serif;font-weight:500;font-size:clamp(23px,2.8vw,33px);margin:0;letter-spacing:-.02em">Selected work</h2>
-          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#61666A">06 / 10</div>
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#61666A">{{ workCount }}</div>
         </div>
 
-        <div data-enter onMouseEnter="{{ draw }}" style="display:grid;grid-template-columns:minmax(0,1fr) clamp(150px,18vw,220px);gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(28px,3.4vw,42px) 0;border-bottom:1px solid #E7E8E9">
-          <div>
-            <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#61666A">01 — manuscript · in preparation</div>
-            <h3 style="font-family:'Schibsted Grotesk','Instrument Sans',system-ui,sans-serif;font-weight:500;font-size:clamp(25px,3.1vw,38px);line-height:1.1;margin:12px 0 0;letter-spacing:-.025em">Local Joint Model</h3>
-            <p style="margin:12px 0 0;max-width:60ch;font-size:16px;line-height:1.6;color:#43464A;text-wrap:pretty">Dynamic prediction of survival from multiple longitudinal biomarkers. Local linear mixed effects at a landmark time, a transformation family that contains Cox and proportional odds, and PAQ-EM, which reduces the random-effects integral to one dimension. With Kehui Chen.</p>
-            <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;color:#43464A">
-              <span style="padding:4px 9px;border:1px solid #D9DBDC;border-radius:999px">survival</span>
-              <span style="padding:4px 9px;border:1px solid #D9DBDC;border-radius:999px">PAQ-EM</span>
-              <span style="padding:4px 9px;border:1px solid #D9DBDC;border-radius:999px">R</span>
+        <sc-for list="{{ works }}" as="w" hint-placeholder-count="6">
+          <div data-enter onMouseEnter="{{ draw }}" style="display:grid;grid-template-columns:minmax(0,1fr) clamp(150px,18vw,220px);gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(28px,3.4vw,42px) 0;border-bottom:1px solid #E7E8E9">
+            <div>
+              <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#61666A">{{ w.label }}</div>
+              <h3 style="font-family:'Schibsted Grotesk','Instrument Sans',system-ui,sans-serif;font-weight:500;font-size:clamp(25px,3.1vw,38px);line-height:1.1;margin:12px 0 0;letter-spacing:-.025em"><a href="{{ w.href }}" style="color:inherit;border:0">{{ w.title }}</a></h3>
+              <p style="margin:12px 0 0;max-width:60ch;font-size:16px;line-height:1.6;color:#43464A;text-wrap:pretty">{{ w.body }}</p>
+              <div style="margin-top:16px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;color:#43464A;letter-spacing:.02em">{{ w.tagline }}</div>
+            </div>
+            <div data-plate>
+              <div data-plate-svg="{{ w.slug }}" style="aspect-ratio:1/1;background:#F3F4F4;border-radius:14px;display:grid;place-items:center;padding:15%"></div>
+              <div style="margin-top:9px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;line-height:1.45;color:#6E7174">{{ w.caption }}</div>
             </div>
           </div>
-          <div data-plate>
-            <div style="aspect-ratio:1/1;background:#F3F4F4;border-radius:14px;display:grid;place-items:center;padding:15%">
-              <svg viewBox="0 0 100 100" style="width:100%;height:auto;overflow:visible" fill="none" stroke-width="1.4" stroke-linecap="round">
-                <line x1="8" y1="88" x2="92" y2="88" stroke="#C3C6C8"></line><line x1="8" y1="88" x2="8" y2="12" stroke="#C3C6C8"></line><line x1="52" y1="12" x2="52" y2="88" stroke="#9AA0A5" stroke-dasharray="3 3"></line><circle cx="10" cy="30" r="1.7" fill="#1A1C1D" stroke="none"></circle><circle cx="16" cy="27" r="1.7" fill="#1A1C1D" stroke="none"></circle><circle cx="22" cy="29" r="1.7" fill="#1A1C1D" stroke="none"></circle><circle cx="30" cy="26" r="1.7" fill="#1A1C1D" stroke="none"></circle><circle cx="38" cy="31" r="1.7" fill="#1A1C1D" stroke="none"></circle><circle cx="45" cy="33" r="1.7" fill="#1A1C1D" stroke="none"></circle><circle cx="50" cy="35" r="1.7" fill="#1A1C1D" stroke="none"></circle><line x1="40" y1="31.5" x2="60" y2="37.5" stroke="#1A1C1D" stroke-dasharray="2.5 2.5"></line><circle cx="10" cy="58" r="1.7" fill="#9AA0A5" stroke="none"></circle><circle cx="15" cy="61" r="1.7" fill="#9AA0A5" stroke="none"></circle><circle cx="22" cy="55" r="1.7" fill="#9AA0A5" stroke="none"></circle><circle cx="30" cy="52" r="1.7" fill="#9AA0A5" stroke="none"></circle><circle cx="38" cy="50" r="1.7" fill="#9AA0A5" stroke="none"></circle><circle cx="44" cy="46" r="1.7" fill="#9AA0A5" stroke="none"></circle><circle cx="50" cy="44" r="1.7" fill="#9AA0A5" stroke="none"></circle><line x1="40" y1="48.6" x2="60" y2="39.8" stroke="#9AA0A5" stroke-dasharray="2.5 2.5"></line><circle cx="10" cy="72" r="1.7" fill="#C3C6C8" stroke="none"></circle><circle cx="16" cy="76" r="1.7" fill="#C3C6C8" stroke="none"></circle><circle cx="22" cy="71" r="1.7" fill="#C3C6C8" stroke="none"></circle><circle cx="31" cy="73" r="1.7" fill="#C3C6C8" stroke="none"></circle><circle cx="40" cy="75" r="1.7" fill="#C3C6C8" stroke="none"></circle><circle cx="47" cy="76" r="1.7" fill="#C3C6C8" stroke="none"></circle><line x1="40" y1="75" x2="60" y2="77" stroke="#C3C6C8" stroke-dasharray="2.5 2.5"></line><path d="M52 84 H56 V80 H60 V70 H64 V58 H68 V44 H72 V34 H77 V26 H83 V20 H92" stroke="#0066CC" stroke-width="1.6"></path>
-              </svg>
-            </div>
-            <div style="margin-top:9px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;line-height:1.45;color:#6E7174">fig 01 — biomarkers up to landmark s, conditional risk after</div>
-          </div>
-        </div>
-
-        <div data-enter onMouseEnter="{{ draw }}" style="display:grid;grid-template-columns:minmax(0,1fr) clamp(150px,18vw,220px);gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(28px,3.4vw,42px) 0;border-bottom:1px solid #E7E8E9">
-          <div>
-            <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#61666A">02 — manuscript · in preparation</div>
-            <h3 style="font-family:'Schibsted Grotesk','Instrument Sans',system-ui,sans-serif;font-weight:500;font-size:clamp(25px,3.1vw,38px);line-height:1.1;margin:12px 0 0;letter-spacing:-.025em">Three-Way Network Dynamics</h3>
-            <p style="margin:12px 0 0;max-width:60ch;font-size:16px;line-height:1.6;color:#43464A;text-wrap:pretty">A Stochastic Actor-Oriented Model for cognitive social structures: ties from sender to receiver as seen by each perceiver, evolving together with self-reported ties. Built as an extension of RSiena. With Nynke Niezink.</p>
-            <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;color:#43464A">
-              <span style="padding:4px 9px;border:1px solid #D9DBDC;border-radius:999px">SAOM</span>
-              <span style="padding:4px 9px;border:1px solid #D9DBDC;border-radius:999px">perception</span>
-              <span style="padding:4px 9px;border:1px solid #D9DBDC;border-radius:999px">RSiena</span>
-            </div>
-          </div>
-          <div data-plate>
-            <div style="aspect-ratio:1/1;background:#F3F4F4;border-radius:14px;display:grid;place-items:center;padding:15%">
-              <svg viewBox="0 0 100 100" style="width:100%;height:auto;overflow:visible" fill="none" stroke-width="1.4">
-                <line x1="27" y1="10" x2="12.3" y2="35.5" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="27" y1="10" x2="10.3" y2="24" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="41.7" y1="35.5" x2="32.8" y2="43" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="41.7" y1="35.5" x2="16.1" y2="14" stroke="#9AA0A5" stroke-width="0.8"></line><circle cx="27" cy="10" r="2" fill="#F3F4F4" stroke="#1A1C1D" stroke-width="1"></circle><circle cx="37.9" cy="14" r="2" fill="#F3F4F4" stroke="#1A1C1D" stroke-width="1"></circle><circle cx="43.7" cy="24" r="2" fill="#F3F4F4" stroke="#1A1C1D" stroke-width="1"></circle><circle cx="41.7" cy="35.5" r="2" fill="#F3F4F4" stroke="#1A1C1D" stroke-width="1"></circle><circle cx="32.8" cy="43" r="2" fill="#F3F4F4" stroke="#1A1C1D" stroke-width="1"></circle><circle cx="21.2" cy="43" r="2" fill="#F3F4F4" stroke="#1A1C1D" stroke-width="1"></circle><circle cx="12.3" cy="35.5" r="2" fill="#F3F4F4" stroke="#1A1C1D" stroke-width="1"></circle><circle cx="10.3" cy="24" r="2" fill="#F3F4F4" stroke="#1A1C1D" stroke-width="1"></circle><circle cx="16.1" cy="14" r="2" fill="#F3F4F4" stroke="#1A1C1D" stroke-width="1"></circle><line x1="73" y1="10" x2="56.3" y2="24" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="83.9" y1="14" x2="67.2" y2="43" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="83.9" y1="14" x2="56.3" y2="24" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="89.7" y1="24" x2="78.8" y2="43" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="89.7" y1="24" x2="67.2" y2="43" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="89.7" y1="24" x2="58.3" y2="35.5" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="87.7" y1="35.5" x2="78.8" y2="43" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="87.7" y1="35.5" x2="58.3" y2="35.5" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="87.7" y1="35.5" x2="62.1" y2="14" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="78.8" y1="43" x2="67.2" y2="43" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="78.8" y1="43" x2="56.3" y2="24" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="78.8" y1="43" x2="62.1" y2="14" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="67.2" y1="43" x2="62.1" y2="14" stroke="#9AA0A5" stroke-width="0.8"></line><circle cx="73" cy="10" r="2" fill="#F3F4F4" stroke="#1A1C1D" stroke-width="1"></circle><circle cx="83.9" cy="14" r="2" fill="#F3F4F4" stroke="#1A1C1D" stroke-width="1"></circle><circle cx="89.7" cy="24" r="2" fill="#F3F4F4" stroke="#1A1C1D" stroke-width="1"></circle><circle cx="87.7" cy="35.5" r="2" fill="#F3F4F4" stroke="#1A1C1D" stroke-width="1"></circle><circle cx="78.8" cy="43" r="2" fill="#F3F4F4" stroke="#1A1C1D" stroke-width="1"></circle><circle cx="67.2" cy="43" r="2" fill="#F3F4F4" stroke="#1A1C1D" stroke-width="1"></circle><circle cx="58.3" cy="35.5" r="2" fill="#F3F4F4" stroke="#1A1C1D" stroke-width="1"></circle><circle cx="56.3" cy="24" r="2" fill="#F3F4F4" stroke="#1A1C1D" stroke-width="1"></circle><circle cx="62.1" cy="14" r="2" fill="#F3F4F4" stroke="#1A1C1D" stroke-width="1"></circle><line x1="27" y1="56" x2="37.9" y2="60" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="27" y1="56" x2="41.7" y2="81.5" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="27" y1="56" x2="32.8" y2="89" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="27" y1="56" x2="21.2" y2="89" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="27" y1="56" x2="12.3" y2="81.5" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="27" y1="56" x2="16.1" y2="60" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="37.9" y1="60" x2="43.7" y2="70" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="37.9" y1="60" x2="41.7" y2="81.5" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="37.9" y1="60" x2="32.8" y2="89" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="37.9" y1="60" x2="21.2" y2="89" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="37.9" y1="60" x2="12.3" y2="81.5" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="37.9" y1="60" x2="10.3" y2="70" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="37.9" y1="60" x2="16.1" y2="60" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="43.7" y1="70" x2="41.7" y2="81.5" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="43.7" y1="70" x2="32.8" y2="89" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="43.7" y1="70" x2="21.2" y2="89" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="43.7" y1="70" x2="12.3" y2="81.5" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="43.7" y1="70" x2="16.1" y2="60" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="41.7" y1="81.5" x2="32.8" y2="89" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="41.7" y1="81.5" x2="21.2" y2="89" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="41.7" y1="81.5" x2="10.3" y2="70" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="41.7" y1="81.5" x2="16.1" y2="60" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="32.8" y1="89" x2="21.2" y2="89" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="32.8" y1="89" x2="12.3" y2="81.5" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="32.8" y1="89" x2="10.3" y2="70" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="32.8" y1="89" x2="16.1" y2="60" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="21.2" y1="89" x2="12.3" y2="81.5" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="21.2" y1="89" x2="10.3" y2="70" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="12.3" y1="81.5" x2="10.3" y2="70" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="12.3" y1="81.5" x2="16.1" y2="60" stroke="#9AA0A5" stroke-width="0.8"></line><line x1="10.3" y1="70" x2="16.1" y2="60" stroke="#9AA0A5" stroke-width="0.8"></line><circle cx="27" cy="56" r="2" fill="#F3F4F4" stroke="#1A1C1D" stroke-width="1"></circle><circle cx="37.9" cy="60" r="2" fill="#F3F4F4" stroke="#1A1C1D" stroke-width="1"></circle><circle cx="43.7" cy="70" r="2" fill="#F3F4F4" stroke="#1A1C1D" stroke-width="1"></circle><circle cx="41.7" cy="81.5" r="2" fill="#F3F4F4" stroke="#1A1C1D" stroke-width="1"></circle><circle cx="32.8" cy="89" r="2" fill="#F3F4F4" stroke="#1A1C1D" stroke-width="1"></circle><circle cx="21.2" cy="89" r="2" fill="#F3F4F4" stroke="#1A1C1D" stroke-width="1"></circle><circle cx="12.3" cy="81.5" r="2" fill="#F3F4F4" stroke="#1A1C1D" stroke-width="1"></circle><circle cx="10.3" cy="70" r="2" fill="#F3F4F4" stroke="#1A1C1D" stroke-width="1"></circle><circle cx="16.1" cy="60" r="2" fill="#F3F4F4" stroke="#1A1C1D" stroke-width="1"></circle><line x1="73" y1="56" x2="83.9" y2="60" stroke="#0066CC" stroke-width="0.8"></line><line x1="73" y1="56" x2="67.2" y2="89" stroke="#0066CC" stroke-width="0.8"></line><line x1="73" y1="56" x2="58.3" y2="81.5" stroke="#0066CC" stroke-width="0.8"></line><line x1="73" y1="56" x2="56.3" y2="70" stroke="#0066CC" stroke-width="0.8"></line><line x1="73" y1="56" x2="62.1" y2="60" stroke="#0066CC" stroke-width="0.8"></line><line x1="83.9" y1="60" x2="87.7" y2="81.5" stroke="#0066CC" stroke-width="0.8"></line><line x1="83.9" y1="60" x2="67.2" y2="89" stroke="#0066CC" stroke-width="0.8"></line><line x1="83.9" y1="60" x2="58.3" y2="81.5" stroke="#0066CC" stroke-width="0.8"></line><line x1="83.9" y1="60" x2="56.3" y2="70" stroke="#0066CC" stroke-width="0.8"></line><line x1="89.7" y1="70" x2="78.8" y2="89" stroke="#0066CC" stroke-width="0.8"></line><line x1="89.7" y1="70" x2="67.2" y2="89" stroke="#0066CC" stroke-width="0.8"></line><line x1="89.7" y1="70" x2="58.3" y2="81.5" stroke="#0066CC" stroke-width="0.8"></line><line x1="78.8" y1="89" x2="67.2" y2="89" stroke="#0066CC" stroke-width="0.8"></line><line x1="78.8" y1="89" x2="56.3" y2="70" stroke="#0066CC" stroke-width="0.8"></line><line x1="67.2" y1="89" x2="56.3" y2="70" stroke="#0066CC" stroke-width="0.8"></line><line x1="67.2" y1="89" x2="62.1" y2="60" stroke="#0066CC" stroke-width="0.8"></line><line x1="58.3" y1="81.5" x2="56.3" y2="70" stroke="#0066CC" stroke-width="0.8"></line><line x1="58.3" y1="81.5" x2="62.1" y2="60" stroke="#0066CC" stroke-width="0.8"></line><line x1="56.3" y1="70" x2="62.1" y2="60" stroke="#0066CC" stroke-width="0.8"></line><circle cx="73" cy="56" r="2" fill="#F3F4F4" stroke="#0066CC" stroke-width="1"></circle><circle cx="83.9" cy="60" r="2" fill="#F3F4F4" stroke="#0066CC" stroke-width="1"></circle><circle cx="89.7" cy="70" r="2" fill="#F3F4F4" stroke="#0066CC" stroke-width="1"></circle><circle cx="87.7" cy="81.5" r="2" fill="#F3F4F4" stroke="#0066CC" stroke-width="1"></circle><circle cx="78.8" cy="89" r="2" fill="#F3F4F4" stroke="#0066CC" stroke-width="1"></circle><circle cx="67.2" cy="89" r="2" fill="#F3F4F4" stroke="#0066CC" stroke-width="1"></circle><circle cx="58.3" cy="81.5" r="2" fill="#F3F4F4" stroke="#0066CC" stroke-width="1"></circle><circle cx="56.3" cy="70" r="2" fill="#F3F4F4" stroke="#0066CC" stroke-width="1"></circle><circle cx="62.1" cy="60" r="2" fill="#F3F4F4" stroke="#0066CC" stroke-width="1"></circle>
-              </svg>
-            </div>
-            <div style="margin-top:9px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;line-height:1.45;color:#6E7174">fig 02 — one network seen by three perceivers; self-report in blue</div>
-          </div>
-        </div>
-
-        <div data-enter onMouseEnter="{{ draw }}" style="display:grid;grid-template-columns:minmax(0,1fr) clamp(150px,18vw,220px);gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(28px,3.4vw,42px) 0;border-bottom:1px solid #E7E8E9">
-          <div>
-            <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#61666A">03 — manuscript · in preparation</div>
-            <h3 style="font-family:'Schibsted Grotesk','Instrument Sans',system-ui,sans-serif;font-weight:500;font-size:clamp(25px,3.1vw,38px);line-height:1.1;margin:12px 0 0;letter-spacing:-.025em">Network-Assisted Localized FPCA</h3>
-            <p style="margin:12px 0 0;max-width:60ch;font-size:16px;line-height:1.6;color:#43464A;text-wrap:pretty">Eigenfunctions of brain activity that are sparse and smooth along a functional connectivity network rather than along anatomical distance. Applied to HCP working-memory MEG and longitudinal ADNI fMRI. With Kehui Chen.</p>
-            <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;color:#43464A">
-              <span style="padding:4px 9px;border:1px solid #D9DBDC;border-radius:999px">FPCA</span>
-              <span style="padding:4px 9px;border:1px solid #D9DBDC;border-radius:999px">MEG · fMRI</span>
-              <span style="padding:4px 9px;border:1px solid #D9DBDC;border-radius:999px">graph penalty</span>
-            </div>
-          </div>
-          <div data-plate>
-            <div style="aspect-ratio:1/1;background:#F3F4F4;border-radius:14px;display:grid;place-items:center;padding:15%">
-              <svg viewBox="0 0 100 100" style="width:100%;height:auto;overflow:visible" fill="none" stroke-width="1.4" stroke-linecap="round">
-                <line x1="54.5" y1="59.7" x2="51.3" y2="57.6" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="54.5" y1="59.7" x2="54.9" y2="64.3" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="54.5" y1="59.7" x2="60.4" y2="60.3" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="60.5" y1="48.2" x2="59.3" y2="49.7" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="60.5" y1="48.2" x2="55.7" y2="45.7" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="60.5" y1="48.2" x2="55.8" y2="43.1" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="62.6" y1="28.4" x2="59.9" y2="32.8" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="62.6" y1="28.4" x2="68.4" y2="35.7" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="62.6" y1="28.4" x2="65.5" y2="39.2" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="48.9" y1="57.8" x2="51.3" y2="57.6" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="48.9" y1="57.8" x2="46.4" y2="55.6" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="48.9" y1="57.8" x2="54.5" y2="59.7" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="31.2" y1="69" x2="30.7" y2="70.5" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="31.2" y1="69" x2="40.8" y2="75.3" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="31.2" y1="69" x2="43.9" y2="65.5" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="64.5" y1="42.3" x2="64.6" y2="40.9" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="64.5" y1="42.3" x2="65.5" y2="39.2" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="64.5" y1="42.3" x2="70.6" y2="43.2" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="54.9" y1="64.3" x2="60.4" y2="60.3" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="54.9" y1="64.3" x2="51.3" y2="57.6" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="40.8" y1="75.3" x2="43.9" y2="65.5" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="40.8" y1="75.3" x2="30.7" y2="70.5" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="46.4" y1="55.6" x2="51.3" y2="57.6" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="46.4" y1="55.6" x2="39.8" y2="59" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="43.9" y1="65.5" x2="39.8" y2="59" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="43.9" y1="65.5" x2="48.9" y2="57.8" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="64.6" y1="40.9" x2="65.5" y2="39.2" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="64.6" y1="40.9" x2="70.6" y2="43.2" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="38.9" y1="55.3" x2="39.8" y2="59" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="38.9" y1="55.3" x2="46.4" y2="55.6" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="38.9" y1="55.3" x2="33.1" y2="49.2" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="28.5" y1="39.5" x2="33.1" y2="49.2" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="28.5" y1="39.5" x2="43.4" y2="38.1" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="28.5" y1="39.5" x2="44.2" y2="32.5" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="59.3" y1="49.7" x2="55.7" y2="45.7" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="59.3" y1="49.7" x2="55.8" y2="43.1" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="68.4" y1="35.7" x2="65.5" y2="39.2" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="68.4" y1="35.7" x2="64.6" y2="40.9" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="68.4" y1="35.7" x2="64.5" y2="42.3" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="60.4" y1="60.3" x2="62.6" y2="66.1" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="44.2" y1="32.5" x2="43.4" y2="38.1" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="44.2" y1="32.5" x2="48.1" y2="40.6" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="44.2" y1="32.5" x2="55.8" y2="43.1" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="70.6" y1="43.2" x2="65.5" y2="39.2" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="62.6" y1="66.1" x2="68" y2="71.8" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="62.6" y1="66.1" x2="54.9" y2="64.3" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="30.7" y1="70.5" x2="43.9" y2="65.5" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="48.1" y1="40.6" x2="43.4" y2="38.1" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="48.1" y1="40.6" x2="55.8" y2="43.1" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="43.4" y1="38.1" x2="55.8" y2="43.1" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="59.9" y1="32.8" x2="65.5" y2="39.2" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="59.9" y1="32.8" x2="68.4" y2="35.7" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="55.8" y1="43.1" x2="55.7" y2="45.7" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="33.1" y1="49.2" x2="39.8" y2="59" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="68" y1="71.8" x2="60.4" y2="60.3" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="68" y1="71.8" x2="54.9" y2="64.3" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="70.6" y1="43.2" x2="79" y2="39.8" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="79" y1="39.8" x2="87.8" y2="37.8" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="87.8" y1="37.8" x2="96" y2="40.7" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="68" y1="71.8" x2="74.5" y2="78" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="74.5" y1="78" x2="80.8" y2="84.4" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="80.8" y1="84.4" x2="85.4" y2="92.2" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="68" y1="71.8" x2="71.1" y2="80.3" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="71.1" y1="80.3" x2="70.4" y2="89.3" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="70.4" y1="89.3" x2="76.3" y2="96" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="30.7" y1="70.5" x2="23.4" y2="75.9" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="23.4" y1="75.9" x2="18.3" y2="83.3" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="18.3" y1="83.3" x2="14.2" y2="91.3" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="30.7" y1="70.5" x2="23.9" y2="76.4" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="23.9" y1="76.4" x2="17" y2="82.2" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="28.5" y1="39.5" x2="19.6" y2="40.5" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="19.6" y1="40.5" x2="11" y2="37.8" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="11" y1="37.8" x2="4" y2="35.1" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="28.5" y1="39.5" x2="19.8" y2="37.2" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="19.8" y1="37.2" x2="12.1" y2="32.6" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="12.1" y1="32.6" x2="5.7" y2="26.3" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="44.2" y1="32.5" x2="40.1" y2="24.5" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="40.1" y1="24.5" x2="42.4" y2="15.8" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="42.4" y1="15.8" x2="42.2" y2="6.8" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="62.6" y1="28.4" x2="68.4" y2="21.4" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="68.4" y1="21.4" x2="73.6" y2="14.1" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="73.6" y1="14.1" x2="74.1" y2="5.2" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="68.4" y1="35.7" x2="74.8" y2="29.4" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="74.8" y1="29.4" x2="80.8" y2="22.7" stroke="#D5D8DA" stroke-width="0.7"></line><line x1="80.8" y1="22.7" x2="87" y2="16.2" stroke="#D5D8DA" stroke-width="0.7"></line><circle cx="54.5" cy="59.7" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="60.5" cy="48.2" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="62.6" cy="28.4" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="48.9" cy="57.8" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="31.2" cy="69" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="64.5" cy="42.3" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="54.9" cy="64.3" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="40.8" cy="75.3" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="43.9" cy="65.5" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="64.6" cy="40.9" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="59.3" cy="49.7" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="68.4" cy="35.7" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="60.4" cy="60.3" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="70.6" cy="43.2" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="51.3" cy="57.6" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="62.6" cy="66.1" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="30.7" cy="70.5" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="48.1" cy="40.6" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="59.9" cy="32.8" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="65.5" cy="39.2" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="55.8" cy="43.1" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="68" cy="71.8" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="55.7" cy="45.7" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="79" cy="39.8" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="87.8" cy="37.8" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="96" cy="40.7" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="74.5" cy="78" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="80.8" cy="84.4" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="85.4" cy="92.2" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="71.1" cy="80.3" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="70.4" cy="89.3" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="76.3" cy="96" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="23.4" cy="75.9" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="18.3" cy="83.3" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="14.2" cy="91.3" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="23.9" cy="76.4" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="17" cy="82.2" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="19.6" cy="40.5" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="11" cy="37.8" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="4" cy="35.1" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="19.8" cy="37.2" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="12.1" cy="32.6" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="5.7" cy="26.3" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="40.1" cy="24.5" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="42.4" cy="15.8" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="42.2" cy="6.8" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="68.4" cy="21.4" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="73.6" cy="14.1" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="74.1" cy="5.2" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="74.8" cy="29.4" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="80.8" cy="22.7" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="87" cy="16.2" r="1.1" fill="#C3C6C8" stroke="none"></circle><circle cx="46.4" cy="55.6" r="2.01244" fill="#0066CC" stroke="none"></circle><circle cx="38.9" cy="55.3" r="1.89285" fill="#0066CC" stroke="none"></circle><circle cx="28.5" cy="39.5" r="2.15645" fill="#0066CC" stroke="none"></circle><circle cx="44.2" cy="32.5" r="1.93948" fill="#0066CC" stroke="none"></circle><circle cx="39.8" cy="59" r="1.85986" fill="#0066CC" stroke="none"></circle><circle cx="43.4" cy="38.1" r="2.16143" fill="#0066CC" stroke="none"></circle><circle cx="33.1" cy="49.2" r="2.62616" fill="#0066CC" stroke="none"></circle>
-              </svg>
-            </div>
-            <div style="margin-top:9px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;line-height:1.45;color:#6E7174">fig 03 — an eigenfunction localized on a connectivity module</div>
-          </div>
-        </div>
-
-        <div data-enter onMouseEnter="{{ draw }}" style="display:grid;grid-template-columns:minmax(0,1fr) clamp(150px,18vw,220px);gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(28px,3.4vw,42px) 0;border-bottom:1px solid #E7E8E9">
-          <div>
-            <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#61666A">04 — published · 2022, JSPI</div>
-            <h3 style="font-family:'Schibsted Grotesk','Instrument Sans',system-ui,sans-serif;font-weight:500;font-size:clamp(25px,3.1vw,38px);line-height:1.1;margin:12px 0 0;letter-spacing:-.025em">Penalized Kernel Quantile Regression</h3>
-            <p style="margin:12px 0 0;max-width:60ch;font-size:16px;line-height:1.6;color:#43464A;text-wrap:pretty">Identifies the partially linear structure of a varying coefficient quantile model, with a proximal ADMM algorithm and a plug-in bandwidth rule from high-dimensional kernel theory.</p>
-            <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;color:#43464A">
-              <span style="padding:4px 9px;border:1px solid #D9DBDC;border-radius:999px">ADMM</span>
-              <span style="padding:4px 9px;border:1px solid #D9DBDC;border-radius:999px">quantile</span>
-              <span style="padding:4px 9px;border:1px solid #D9DBDC;border-radius:999px">high-dim</span>
-            </div>
-          </div>
-          <div data-plate>
-            <div style="aspect-ratio:1/1;background:#F3F4F4;border-radius:14px;display:grid;place-items:center;padding:15%">
-              <svg viewBox="0 0 100 100" style="width:100%;height:auto;overflow:visible" fill="none" stroke-width="1.4" stroke-linecap="round">
-                <line x1="8" y1="90" x2="92" y2="90" stroke="#C3C6C8"></line><line x1="8" y1="90" x2="8" y2="10" stroke="#C3C6C8"></line><line x1="34" y1="90" x2="34" y2="93" stroke="#C3C6C8"></line><line x1="62" y1="90" x2="62" y2="93" stroke="#C3C6C8"></line><path d="M10 40 C24 14 38 18 50 34 S74 60 90 30" stroke="#0066CC"></path><path d="M10 58 L90 58" stroke="#1A1C1D"></path><path d="M10 74 L90 74" stroke="#C3C6C8"></path>
-              </svg>
-            </div>
-            <div style="margin-top:9px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;line-height:1.45;color:#6E7174">fig 04 — varying and constant coefficients</div>
-          </div>
-        </div>
-
-        <div data-enter onMouseEnter="{{ draw }}" style="display:grid;grid-template-columns:minmax(0,1fr) clamp(150px,18vw,220px);gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(28px,3.4vw,42px) 0;border-bottom:1px solid #E7E8E9">
-          <div>
-            <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#61666A">05 — published · 2023, Scientific Reports</div>
-            <h3 style="font-family:'Schibsted Grotesk','Instrument Sans',system-ui,sans-serif;font-weight:500;font-size:clamp(25px,3.1vw,38px);line-height:1.1;margin:12px 0 0;letter-spacing:-.025em">Methylation and ADHD</h3>
-            <p style="margin:12px 0 0;max-width:60ch;font-size:16px;line-height:1.6;color:#43464A;text-wrap:pretty">First co-author. Prenatal sulfur dioxide exposure, genome-wide DNA methylation at ages 2 and 6, and ADHD rating scales at ages 4, 6 and 8 across 329 mother–child pairs.</p>
-            <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;color:#43464A">
-              <span style="padding:4px 9px;border:1px solid #D9DBDC;border-radius:999px">EWAS</span>
-              <span style="padding:4px 9px;border:1px solid #D9DBDC;border-radius:999px">cohort</span>
-              <span style="padding:4px 9px;border:1px solid #D9DBDC;border-radius:999px">R</span>
-            </div>
-          </div>
-          <div data-plate>
-            <div style="aspect-ratio:1/1;background:#F3F4F4;border-radius:14px;display:grid;place-items:center;padding:15%">
-              <svg viewBox="0 0 100 100" style="width:100%;height:auto;overflow:visible" fill="none" stroke-width="1.4" stroke-linecap="round">
-                <line x1="8" y1="88" x2="92" y2="88" stroke="#C3C6C8"></line><line x1="8" y1="38" x2="92" y2="38" stroke="#C3C6C8" stroke-dasharray="2 4"></line><circle cx="13.7526" cy="72.9953" r="1.15" fill="#1A1C1D" stroke="none"></circle><circle cx="11.6157" cy="68.6821" r="1.15" fill="#1A1C1D" stroke="none"></circle><circle cx="15.555" cy="81.0136" r="1.15" fill="#1A1C1D" stroke="none"></circle><circle cx="15.3132" cy="80.642" r="1.15" fill="#1A1C1D" stroke="none"></circle><circle cx="11.3187" cy="79.4764" r="1.15" fill="#1A1C1D" stroke="none"></circle><circle cx="11.7711" cy="81.9966" r="1.15" fill="#1A1C1D" stroke="none"></circle><circle cx="14.6084" cy="80.8966" r="1.15" fill="#1A1C1D" stroke="none"></circle><circle cx="12.8975" cy="78.0805" r="1.15" fill="#1A1C1D" stroke="none"></circle><circle cx="16.3332" cy="67.8568" r="1.15" fill="#1A1C1D" stroke="none"></circle><circle cx="24.3718" cy="78.4966" r="1.15" fill="#9AA0A5" stroke="none"></circle><circle cx="29.2982" cy="59.3859" r="1.15" fill="#9AA0A5" stroke="none"></circle><circle cx="23.4617" cy="76.5827" r="1.15" fill="#9AA0A5" stroke="none"></circle><circle cx="22.2262" cy="75.7552" r="1.15" fill="#9AA0A5" stroke="none"></circle><circle cx="27.9371" cy="76.4701" r="1.15" fill="#9AA0A5" stroke="none"></circle><circle cx="22.5362" cy="67.8306" r="1.15" fill="#9AA0A5" stroke="none"></circle><circle cx="24.1654" cy="74.8979" r="1.15" fill="#9AA0A5" stroke="none"></circle><circle cx="25.6558" cy="79.7926" r="1.15" fill="#9AA0A5" stroke="none"></circle><circle cx="22.7506" cy="82.2483" r="1.15" fill="#9AA0A5" stroke="none"></circle><circle cx="36.7834" cy="73.8587" r="1.15" fill="#1A1C1D" stroke="none"></circle><circle cx="35.9773" cy="79.0391" r="1.15" fill="#1A1C1D" stroke="none"></circle><circle cx="34.8521" cy="76.8871" r="1.15" fill="#1A1C1D" stroke="none"></circle><circle cx="36.9415" cy="61.9993" r="1.15" fill="#1A1C1D" stroke="none"></circle><circle cx="33.0748" cy="69.8364" r="1.15" fill="#1A1C1D" stroke="none"></circle><circle cx="38.4387" cy="76.8478" r="1.15" fill="#1A1C1D" stroke="none"></circle><circle cx="37.2003" cy="75.4044" r="1.15" fill="#1A1C1D" stroke="none"></circle><circle cx="32.0036" cy="48.6256" r="1.15" fill="#1A1C1D" stroke="none"></circle><circle cx="34.554" cy="83.6652" r="1.15" fill="#1A1C1D" stroke="none"></circle><circle cx="45.1562" cy="76.5428" r="1.15" fill="#9AA0A5" stroke="none"></circle><circle cx="41.3333" cy="73.1318" r="1.15" fill="#9AA0A5" stroke="none"></circle><circle cx="45.8707" cy="64.7452" r="1.15" fill="#9AA0A5" stroke="none"></circle><circle cx="48.4416" cy="76.1853" r="1.15" fill="#9AA0A5" stroke="none"></circle><circle cx="46.0521" cy="65.5443" r="1.15" fill="#9AA0A5" stroke="none"></circle><circle cx="45.9291" cy="60.0496" r="1.15" fill="#9AA0A5" stroke="none"></circle><circle cx="49.0298" cy="77.238" r="1.15" fill="#9AA0A5" stroke="none"></circle><circle cx="45.0298" cy="81.6376" r="1.15" fill="#9AA0A5" stroke="none"></circle><circle cx="46.9627" cy="80.0536" r="1.15" fill="#9AA0A5" stroke="none"></circle><circle cx="56.5006" cy="59.8724" r="1.15" fill="#1A1C1D" stroke="none"></circle><circle cx="53.4191" cy="82.9527" r="1.15" fill="#1A1C1D" stroke="none"></circle><circle cx="54.2792" cy="82.6415" r="1.15" fill="#1A1C1D" stroke="none"></circle><circle cx="54.9244" cy="81.5776" r="1.15" fill="#1A1C1D" stroke="none"></circle><circle cx="52.4284" cy="80.6403" r="1.15" fill="#1A1C1D" stroke="none"></circle><circle cx="57.53" cy="80.9585" r="1.15" fill="#1A1C1D" stroke="none"></circle><circle cx="52.0994" cy="83.806" r="1.15" fill="#1A1C1D" stroke="none"></circle><circle cx="58.4071" cy="71.0555" r="1.15" fill="#1A1C1D" stroke="none"></circle><circle cx="51.6849" cy="68.4138" r="1.15" fill="#1A1C1D" stroke="none"></circle><circle cx="68.5088" cy="78.8476" r="1.15" fill="#9AA0A5" stroke="none"></circle><circle cx="67.9639" cy="77.1052" r="1.15" fill="#9AA0A5" stroke="none"></circle><circle cx="64.53" cy="76.0781" r="1.15" fill="#9AA0A5" stroke="none"></circle><circle cx="64.0496" cy="59.5809" r="1.15" fill="#9AA0A5" stroke="none"></circle><circle cx="62.2828" cy="62.2505" r="1.15" fill="#9AA0A5" stroke="none"></circle><circle cx="62.4979" cy="82.9279" r="1.15" fill="#9AA0A5" stroke="none"></circle><circle cx="65.1222" cy="74.5841" r="1.15" fill="#9AA0A5" stroke="none"></circle><circle cx="66.0075" cy="83.9058" r="1.15" fill="#9AA0A5" stroke="none"></circle><circle cx="64.561" cy="82.8263" r="1.15" fill="#9AA0A5" stroke="none"></circle><circle cx="74.1387" cy="54.595" r="1.15" fill="#1A1C1D" stroke="none"></circle><circle cx="76.8692" cy="70.98" r="1.15" fill="#1A1C1D" stroke="none"></circle><circle cx="75.3817" cy="69.568" r="1.15" fill="#1A1C1D" stroke="none"></circle><circle cx="71.4589" cy="70.8525" r="1.15" fill="#1A1C1D" stroke="none"></circle><circle cx="78.646" cy="79.0419" r="1.15" fill="#1A1C1D" stroke="none"></circle><circle cx="77.7819" cy="57.9816" r="1.15" fill="#1A1C1D" stroke="none"></circle><circle cx="74.3352" cy="79.1058" r="1.15" fill="#1A1C1D" stroke="none"></circle><circle cx="76.3915" cy="80.3959" r="1.15" fill="#1A1C1D" stroke="none"></circle><circle cx="71.5291" cy="75.8883" r="1.15" fill="#1A1C1D" stroke="none"></circle><circle cx="82.3796" cy="80.3468" r="1.15" fill="#9AA0A5" stroke="none"></circle><circle cx="83.8905" cy="83.7344" r="1.15" fill="#9AA0A5" stroke="none"></circle><circle cx="82.2858" cy="83.9089" r="1.15" fill="#9AA0A5" stroke="none"></circle><circle cx="81.8624" cy="82.0654" r="1.15" fill="#9AA0A5" stroke="none"></circle><circle cx="88.4318" cy="81.7666" r="1.15" fill="#9AA0A5" stroke="none"></circle><circle cx="86.2196" cy="78.1008" r="1.15" fill="#9AA0A5" stroke="none"></circle><circle cx="83.9528" cy="76.0341" r="1.15" fill="#9AA0A5" stroke="none"></circle><circle cx="84.0954" cy="65.887" r="1.15" fill="#9AA0A5" stroke="none"></circle><circle cx="89.4414" cy="66.3716" r="1.15" fill="#9AA0A5" stroke="none"></circle><circle cx="34" cy="24" r="1.9" fill="#0066CC" stroke="none"></circle><circle cx="36.5" cy="30" r="1.9" fill="#0066CC" stroke="none"></circle><circle cx="65" cy="17" r="1.9" fill="#0066CC" stroke="none"></circle><circle cx="63" cy="27" r="1.9" fill="#0066CC" stroke="none"></circle><circle cx="67.5" cy="33" r="1.9" fill="#0066CC" stroke="none"></circle>
-              </svg>
-            </div>
-            <div style="margin-top:9px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;line-height:1.45;color:#6E7174">fig 05 — epigenome-wide scan, CpGs above threshold</div>
-          </div>
-        </div>
-
-        <div data-enter onMouseEnter="{{ draw }}" style="display:grid;grid-template-columns:minmax(0,1fr) clamp(150px,18vw,220px);gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(28px,3.4vw,42px) 0;border-bottom:1px solid #E7E8E9">
-          <div>
-            <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#61666A">06 — published · 2019, MileTS19</div>
-            <h3 style="font-family:'Schibsted Grotesk','Instrument Sans',system-ui,sans-serif;font-weight:500;font-size:clamp(25px,3.1vw,38px);line-height:1.1;margin:12px 0 0;letter-spacing:-.025em">Anomaly Detection in Cyber-Physical Systems</h3>
-            <p style="margin:12px 0 0;max-width:60ch;font-size:16px;line-height:1.6;color:#43464A;text-wrap:pretty">Contextual anomalies in the SWaT water-treatment data, found by measuring Kullback–Leibler divergence between sliding-window error distributions from RNN and MDN classifiers.</p>
-            <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;color:#43464A">
-              <span style="padding:4px 9px;border:1px solid #D9DBDC;border-radius:999px">RNN</span>
-              <span style="padding:4px 9px;border:1px solid #D9DBDC;border-radius:999px">MDN</span>
-              <span style="padding:4px 9px;border:1px solid #D9DBDC;border-radius:999px">KL divergence</span>
-            </div>
-          </div>
-          <div data-plate>
-            <div style="aspect-ratio:1/1;background:#F3F4F4;border-radius:14px;display:grid;place-items:center;padding:15%">
-              <svg viewBox="0 0 100 100" style="width:100%;height:auto;overflow:visible" fill="none" stroke-width="1.4" stroke-linecap="round">
-                <line x1="8" y1="48" x2="92" y2="48" stroke="#C3C6C8"></line><path d="M12 48 C25 48 30.2 14 38 14 S51 48 64 48" stroke="#1A1C1D"></path><path d="M30 48 C45 48 51 22 60 22 S75 48 90 48" stroke="#0066CC"></path><rect x="14" y="60" width="24" height="30" fill="#E1E6EC" stroke="none"></rect><rect x="54" y="60" width="24" height="30" fill="none" stroke="#0066CC" stroke-dasharray="3 4"></rect><path d="M8 76 L14 72 L20 79 L26 71 L32 78 L38 73 L44 77 L50 72 L56 66 L61 86 L66 63 L71 84 L76 69 L82 77 L92 74" stroke="#1A1C1D"></path>
-              </svg>
-            </div>
-            <div style="margin-top:9px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;line-height:1.45;color:#6E7174">fig 06 — error distributions of two windows</div>
-          </div>
-        </div>
-
-        <div style="padding:26px 0 0;font-size:13.5px"><a href="./site/index.html#/projects">All ten projects, in full →</a></div>
+        </sc-for>
+        <div style="padding:26px 0 0;font-size:13.5px"><a href="./detail/index.html#/projects">{{ allProjects }}</a></div>
       </div>
 
       <div id="writing" style="padding:clamp(64px,9vw,112px) 0 0;scroll-margin-top:90px">
@@ -230,7 +124,7 @@
             </div>
           </div>
         </sc-for>
-        <div style="padding:26px 0 0;font-size:13.5px"><a href="./site/index.html#/publications">Full publication list →</a></div>
+        <div style="padding:26px 0 0;font-size:13.5px"><a href="./detail/index.html#/publications">Full publication list →</a></div>
       </div>
 
       <div id="record" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(32px,5vw,72px);padding:clamp(64px,9vw,112px) 0 0;scroll-margin-top:90px">
@@ -245,7 +139,7 @@
               </div>
             </div>
           </sc-for>
-          <div style="padding:18px 0 0;font-size:13.5px"><a href="./site/index.html#/cv">Full CV →</a></div>
+          <div style="padding:18px 0 0;font-size:13.5px"><a href="./detail/index.html#/cv">Full CV →</a></div>
         </div>
         <div>
           <h2 style="font-family:'Schibsted Grotesk','Instrument Sans',system-ui,sans-serif;font-weight:500;font-size:clamp(21px,2.3vw,26px);margin:0 0 14px;letter-spacing:-.015em;padding-bottom:12px;border-bottom:1px solid #D9DBDC">News</h2>
@@ -287,7 +181,7 @@
 
       <div style="padding:26px 0 40px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;color:#61666A;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
         <span>Department of Statistics &amp; Data Science, Carnegie Mellon University</span>
-        <span><a href="./site/index.html" style="color:#61666A;border-bottom-color:#D9DBDC">journal version →</a></span>
+        <span><a href="./detail/index.html#/projects" style="color:#61666A;border-bottom-color:#D9DBDC">projects · publications · cv →</a></span>
       </div>
 
     </div>
@@ -323,7 +217,20 @@ class Component extends DCLogic {
     this.applyProps();
   }
 
-  componentDidUpdate() { this.scan(); this.rail(); this.applyProps(); }
+  componentDidUpdate() { this.plates(); this.scan(); this.rail(); this.applyProps(); }
+
+  plates() {
+    const d = this.state.data;
+    if (!d) return;
+    document.querySelectorAll('[data-plate-svg]').forEach((el) => {
+      const slug = el.getAttribute('data-plate-svg');
+      if (!slug || el.getAttribute('data-done') === slug) return;
+      const p = (d.projects || []).find((x) => x.slug === slug);
+      if (!p || !p.plate) return;
+      el.innerHTML = '<svg viewBox="0 0 100 100" style="width:100%;height:auto;overflow:visible" fill="none" stroke-width="1.4" stroke-linecap="round">' + p.plate + '</svg>';
+      el.setAttribute('data-done', slug);
+    });
+  }
 
   applyProps() {
     const p = this.props || {};
@@ -335,7 +242,7 @@ class Component extends DCLogic {
       if (grid) grid.style.gridTemplateColumns = railOn ? '160px minmax(0,1fr)' : 'minmax(0,1fr)';
     }
     const stats = document.querySelector('[data-stats]');
-    if (stats) stats.style.display = p.showStats === false ? 'none' : '';
+    if (stats) stats.style.display = p.showStats === false ? 'none' : 'grid';
     document.querySelectorAll('[data-plate]').forEach((el) => {
       el.style.display = p.showPlates === false ? 'none' : '';
       const row = el.parentElement;
@@ -442,11 +349,25 @@ class Component extends DCLogic {
     const d = this.state.data || {};
     const all = d.publications || [];
     const pubs = all.filter((p) => p.selected).slice(0, 6).map((p) => Object.assign({}, p, { bib: this.bib(p) }));
+    const projects = d.projects || [];
+    const works = projects.filter((p) => p.card).map((p, i) => ({
+      slug: p.slug,
+      href: './detail/index.html#/p/' + p.slug,
+      label: String(i + 1).padStart(2, '0') + ' — ' + p.card.label,
+      title: p.card.title,
+      body: p.card.body,
+      tagline: (p.card.tags || []).join('  ·  '),
+      caption: 'fig ' + String(i + 1).padStart(2, '0') + ' — ' + p.card.caption
+    }));
+    const two = (n) => String(n).padStart(2, '0');
     const software = (d.software || []).map((s) => Object.assign({}, s, {
       install: s.install || 'remotes::install_github("kevinjwcho/' + s.name + '")'
     }));
     return {
       pubs,
+      works,
+      workCount: projects.length ? two(works.length) + ' / ' + two(projects.length) : '',
+      allProjects: projects.length ? 'All ' + projects.length + ' projects, in full →' : '',
       pubCount: all.length || '',
       pkgCount: software.length || '',
       news: d.news || [],
