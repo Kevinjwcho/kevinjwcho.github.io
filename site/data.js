@@ -5,7 +5,7 @@ window.DATA = {
    "title": "Local Joint Model (LJM)",
    "kind": "Manuscript",
    "meta": "In preparation",
-   "glyph": "trajectory",
+   "glyph": "ljm",
    "body": "Dynamic prediction of survival outcomes from multiple longitudinal biomarkers. At a landmark time the biomarkers follow a local linear mixed-effects model whose subject-specific coefficients are the current value and the instantaneous rate of change; the survival model conditions on these latent quantities through a transformation function G, with Cox proportional hazards and proportional odds as special cases. Estimated with PAQ-EM, a projected adaptive-quadrature EM algorithm, and released as an R package.",
    "sections": [
     {
@@ -52,7 +52,7 @@ window.DATA = {
    "title": "Three-Way Network Dynamics",
    "kind": "Manuscript",
    "meta": "In preparation",
-   "glyph": "network",
+   "glyph": "threeway",
    "body": "A stochastic actor-oriented model (SAOM) for longitudinal cognitive social structure data: the tie from sender j to receiver k as perceived by actor i, observed over time. Perceptions and self-reported ties evolve together by micro-steps, implemented as an extension of the RSiena package. With Dr. Nynke Niezink.",
    "sections": [
     {
@@ -82,7 +82,7 @@ window.DATA = {
     },
     {
      "heading": "Status",
-     "body": "Manuscript in preparation with Dr. Nynke Niezink at the Institute of Complex Social Dynamics and the Department of Statistics & Data Science, Carnegie Mellon University. The implementation lives in a fork of RSiena on GitHub. Presented at INSNA Sunbelt 2026 and JSM 2026.",
+     "body": "Manuscript in preparation with Dr. Nynke Niezink at the Institute of Complex Social Dynamics and the Department of Statistics & Data Science, Carnegie Mellon University. The implementation lives in a fork of RSiena on GitHub. Presented at the INSNA Sunbelt Conference 2026 (Daytona Beach), JSM 2026 (Boston), and in an invited seminar at Hanyang University.",
      "bullets": []
     }
    ]
@@ -92,7 +92,7 @@ window.DATA = {
    "title": "Network-Assisted Localized FPCA",
    "kind": "Manuscript",
    "meta": "In preparation",
-   "glyph": "netcurve",
+   "glyph": "modules",
    "body": "Localized functional principal component analysis for brain imaging data. A Fantope-based sparse estimator is combined with a graph smoothness penalty built from a functional connectivity network, so that eigenfunctions are localized and smooth along network edges rather than along anatomical distance.",
    "sections": [
     {
@@ -131,7 +131,7 @@ window.DATA = {
    "title": "Penalized Kernel Quantile Regression",
    "kind": "Published",
    "meta": "2022 · JSPI",
-   "glyph": "fan",
+   "glyph": "coef",
    "body": "Identifies the partially linear structure of a varying coefficient quantile model, with a proximal ADMM algorithm and a plug-in bandwidth rule from high-dimensional kernel theory.",
    "sections": [
     {
@@ -191,7 +191,7 @@ window.DATA = {
    "title": "Anomaly Detection in Cyber-Physical Systems",
    "kind": "Published",
    "meta": "2019 · MileTS19",
-   "glyph": "window",
+   "glyph": "density",
    "body": "Contextual anomalies in the SWaT water-treatment dataset, found by measuring Kullback–Leibler divergence between sliding-window error distributions from RNN and MDN classifiers.",
    "sections": [
     {
@@ -343,7 +343,7 @@ window.DATA = {
   {
    "group": "In preparation",
    "selected": true,
-   "title": "Network-assisted localized functional principal component analysis for brain imaging data",
+   "title": "Network assisted localized functional principal component analysis for brain MEG data",
    "authors": "Jinwoo Cho, Kehui Chen",
    "venue": "",
    "url": "#/p/nalfpca",
@@ -352,11 +352,19 @@ window.DATA = {
   {
    "group": "In preparation",
    "selected": true,
-   "title": "Longitudinal three-way network models for social network perceptions",
-   "authors": "Jinwoo Cho, Nynke M.D. Niezink",
+   "title": "A Stochastic Actor-Oriented Model for the Longitudinal Analysis of Cognitive Social Structures",
+   "authors": "Jinwoo Cho, Nynke Niezink",
    "venue": "",
    "url": "#/p/three-way",
    "link": "Project"
+  },
+  {
+   "group": "In preparation",
+   "title": "Subgroup Identification and Inference in Nationally Representative Survey Data",
+   "authors": "Jinwoo Cho, Eun Ryung Lee, Seyoung Park, G. Hong",
+   "venue": "",
+   "url": "",
+   "link": ""
   },
   {
    "group": "Submitted",
@@ -366,6 +374,14 @@ window.DATA = {
    "venue": "",
    "url": "https://github.com/kevinjwcho/JEL",
    "link": "Code"
+  },
+  {
+   "group": "Published",
+   "title": "A novel method for biological age assessment utilizing hospitalization risk of cardiovascular disease",
+   "authors": "J. Oh, Jinwoo Cho, Yun-Chul Hong, H. J. Yoon, E. Ha — Oh and Cho contributed equally",
+   "venue": "BMC Cardiovascular Disorders, 2026 (in press)",
+   "url": "",
+   "link": ""
   },
   {
    "group": "Published",
@@ -452,13 +468,21 @@ window.DATA = {
   {
    "group": "Published",
    "title": "Robust Anomaly Detection in Cyber Physical System using Kullback-Leibler Divergence in Error Distributions",
-   "authors": "Jinwoo Cho, et al.",
+   "authors": "Jinwoo Cho, Shahroz Tariq, Sangyup Lee, Young Geun Kim, Jeong-Han Yun, Jonguk Kim, Hyoung Chun Kim, Simon S. Woo",
    "venue": "5th Workshop on Mining and Learning from Time Series (MileTS19), Anchorage, Alaska, 2019",
    "url": "",
    "link": ""
   }
  ],
  "news": [
+  {
+   "date": "Aug 2026",
+   "text": "I presented “Modeling Longitudinal Three-way Network Data” at JSM 2026 in Boston."
+  },
+  {
+   "date": "Jun 2026",
+   "text": "I gave a talk on stochastic actor-oriented modeling for cognitive social structures at the INSNA Sunbelt Conference, Daytona Beach."
+  },
   {
    "date": "Aug 01, 2025",
    "text": "I have begun a special faculty position at CMU."
@@ -547,7 +571,7 @@ window.DATA = {
     {
      "year": "Jul 2017 — Jun 2019",
      "title": "Teaching and Research Assistant (Part-time)",
-     "org": "Department of Information Statistics, Korean National Open University",
+     "org": "Department of Information Statistics, Korea National Open University",
      "notes": []
     },
     {
@@ -711,15 +735,21 @@ window.DATA = {
    "heading": "Presentation and Poster",
    "items": [
     {
-     "year": "2026",
-     "title": "Longitudinal three-way network analysis",
-     "org": "INSNA Sunbelt 2026",
+     "year": "Aug 2026",
+     "title": "Modeling Longitudinal Three-way Network Data",
+     "org": "Joint Statistical Meetings (JSM) 2026, Boston, Massachusetts",
      "notes": []
     },
     {
-     "year": "2026",
-     "title": "Longitudinal three-way network analysis",
-     "org": "JSM 2026",
+     "year": "Jun 2026",
+     "title": "Stochastic Actor-Oriented Modeling for Cognitive Social Structures",
+     "org": "Sunbelt Social Networks Conference (INSNA) 2026, Daytona Beach, Florida",
+     "notes": []
+    },
+    {
+     "year": "May 2026",
+     "title": "Beyond Objective Networks: Analyzing Subjective Social Structures via the Three-way SAOM",
+     "org": "Hanyang University, Department of Automotive Engineering (IRCV Lab), Seoul — invited talk",
      "notes": []
     },
     {
