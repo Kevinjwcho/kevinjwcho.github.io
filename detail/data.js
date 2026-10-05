@@ -42,7 +42,7 @@ window.DATA = {
     },
     {
      "heading": "Status",
-     "body": "With Dr. Kehui Chen, University of Pittsburgh. The single-biomarker version, Jointly Estimated Landmarking (JEL), is under review; the multivariate LJM manuscript is in preparation. Presented at JSM 2024 (Biometrics Section, Modern Advances in Time-to-event Data Analysis) and the Keystone State Statistics Symposium.",
+     "body": "With Dr. Kehui Chen, University of Pittsburgh. The single-biomarker version of the Local Joint Model (LJM) is under review; the multivariate LJM manuscript is in preparation. Presented at JSM 2024 (Biometrics Section, Modern Advances in Time-to-event Data Analysis) and the Keystone State Statistics Symposium.",
      "bullets": []
     }
    ],
@@ -441,7 +441,7 @@ window.DATA = {
   {
    "group": "Submitted",
    "selected": true,
-   "title": "Dynamic prediction of survival outcomes using Jointly Estimated Landmarking approach",
+   "title": "Dynamic prediction of survival outcomes using the Local Joint Model approach",
    "authors": "Jinwoo Cho, Kehui Chen",
    "venue": "",
    "url": "",
