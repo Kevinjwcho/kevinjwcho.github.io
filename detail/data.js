@@ -6,7 +6,7 @@ window.DATA = {
    "kind": "Manuscript",
    "meta": "In preparation",
    "glyph": "ljm",
-   "body": "Dynamic prediction of survival outcomes from multiple longitudinal biomarkers. At a landmark time the biomarkers follow a local linear mixed-effects model whose subject-specific coefficients are the current value and the instantaneous rate of change; the survival model conditions on these latent quantities through a transformation function G, with Cox proportional hazards and proportional odds as special cases. Estimated with PAQ-EM, a projected adaptive-quadrature EM algorithm, and released as an R package.",
+   "body": "Dynamic prediction of survival outcomes from multiple longitudinal biomarkers. At a landmark time the biomarkers follow a local linear mixed-effects model whose subject-specific coefficients are the current value and the instantaneous rate of change; the survival model conditions on these latent quantities through a transformation function G, with Cox proportional hazards and proportional odds as special cases. Estimated with PAQ-EM, a projected adaptive-quadrature EM algorithm.",
    "sections": [
     {
      "heading": "The problem",
@@ -32,7 +32,7 @@ window.DATA = {
      "bullets": [
       "Computation stays practical as the number of biomarkers grows.",
       "Association parameters can be constant or time-varying through B-splines, with confidence bands.",
-      "Implemented in R with Rcpp; the package is on GitHub."
+      "Implemented in R with Rcpp; software release is pending."
      ]
     },
     {
@@ -444,8 +444,8 @@ window.DATA = {
    "title": "Dynamic prediction of survival outcomes using Jointly Estimated Landmarking approach",
    "authors": "Jinwoo Cho, Kehui Chen",
    "venue": "",
-   "url": "https://github.com/kevinjwcho/JEL",
-   "link": "Code"
+   "url": "",
+   "link": ""
   },
   {
    "group": "Published",
@@ -569,14 +569,6 @@ window.DATA = {
   }
  ],
  "software": [
-  {
-   "name": "LJM",
-   "status": "GitHub · v2.2",
-   "body": "Local joint model for dynamic survival prediction from one or several longitudinal biomarkers: transformation survival models, time-varying associations via B-splines, the PAQ-EM algorithm, and time-dependent AUC and prediction error. Currently distributed under its earlier name, JEL (Jointly Estimated Landmarking).",
-   "url": "https://github.com/kevinjwcho/JEL",
-   "link": "GitHub",
-   "install": "remotes::install_github(\"kevinjwcho/JEL\")"
-  },
   {
    "name": "rsiena (three-way fork)",
    "status": "Fork · branch Jinwoo",
